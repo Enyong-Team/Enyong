@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "luckiestGUY";
+    src: url("../src/assets/font/LuckiestGuy-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "fredoka";
+    src: url("../src/assets/font/FredokaOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "inter";
+    src: url("../src/assets/font/Inter_24pt-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "inter";
+  src: url(./assets/fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+}
+
+@import "tailwindcss";
+
+@theme {
+    --font-LG:luckiestGUY, "sans-serif";
+    --font-FD:fredoka, "sans-serif";
+    --font-IN:inter, "sans-serif";
+}

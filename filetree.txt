@@ -1,0 +1,68 @@
+Folder PATH listing
+Volume serial number is 58D4-3466
+C:.
++---node_modules
+¦   +---.vite
+¦       +---deps
++---public
++---src
+    +---assets
+    ¦   +---ButtonPIC
+    ¦   +---font
+    ¦   +---minigamespics
+    ¦   +---PIC
+    +---context
+    +---data
+    +---Game
+    ¦   +---Categories
+    ¦   ¦   +---AralingPanlipunan
+    ¦   ¦   ¦   +---AralingPanlipunanbackground
+    ¦   ¦   +---CategoriesLogo
+    ¦   ¦   +---English
+    ¦   ¦   ¦   +---EnglishBackground
+    ¦   ¦   +---Filipino
+    ¦   ¦   ¦   +---FilipinoBackground
+    ¦   ¦   +---GMRC
+    ¦   ¦   ¦   +---gmrcBackground
+    ¦   ¦   +---Math
+    ¦   ¦   ¦   +---MathBackground
+    ¦   ¦   +---MusicAndArt
+    ¦   ¦   ¦   +---MusicAndArtBackground
+    ¦   ¦   +---olduiofquizes
+    ¦   ¦   +---PhysicalEducationAndHealth
+    ¦   ¦   ¦   +---PhysicalEducationAndHealthBackground
+    ¦   ¦   +---Science
+    ¦   ¦   ¦   +---Sciencebackground
+    ¦   ¦   +---TLE
+    ¦   ¦       +---TLEBackground
+    ¦   +---Categories - Copy
+    ¦   ¦   +---AralingPanlipunan
+    ¦   ¦   ¦   +---AralingPanlipunanbackground
+    ¦   ¦   +---CategoriesLogo
+    ¦   ¦   +---English
+    ¦   ¦   ¦   +---EnglishBackground
+    ¦   ¦   +---Filipino
+    ¦   ¦   ¦   +---FilipinoBackground
+    ¦   ¦   +---GMRC
+    ¦   ¦   +---Math
+    ¦   ¦   ¦   +---MathBackground
+    ¦   ¦   +---MusicAndArt
+    ¦   ¦   +---PhysicalEducationAndHealth
+    ¦   ¦   +---Science
+    ¦   ¦   ¦   +---Sciencebackground
+    ¦   ¦   +---TLE
+    ¦   ¦       +---TLEBackground
+    ¦   +---nextquestion
+    ¦       +---spinningBG
+    +---home
+        +---aboutPage
+        +---accountPage
+        +---DailyGoals
+        +---earnCoin
+        ¦   +---earCoinPic
+        +---playwithpartner
+        +---rank
+        ¦   +---rankPic
+        +---ranking
+        ¦   +---rankingPic
+        +---settingPage

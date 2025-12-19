@@ -1,0 +1,17 @@
+cd "D:\ENYONG-S-Mindquest-explorer\ENYONG'S Mindquest explorer"
+<<<<<<< HEAD
+ npm install
+ npm run dev
+=======
+>>>>>>> f7e81848dde6ec645aa6aa58bc8502c553805b70
+cd M:\ENYONG'S Mindquest explorer\ENYONG'S Mindquest explorer
+npm install
+npm run dev
+
+npm create vite@latest my-project
+npm install tailwindcss @tailwindcss/vite
+
+npm install react-router-dom@latest
+
+
+git pull origin main --allow-unrelated-histories

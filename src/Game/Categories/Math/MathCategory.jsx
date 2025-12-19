@@ -1,0 +1,33 @@
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import MathLogo from "../CategoriesLogo/MathLogo.png"; 
+
+function MathCategory() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // NAVIGATE TO GAME WITH SPECIFIC SUBJECT
+      navigate("/game", { state: { subject: "Math" } });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
+  return (
+    <div className="min-h-screen bg-[#081E41] flex flex-col text-white">
+      <div className="font-FD flex flex-col items-center justify-center m-10">
+        <div className="flex flex-col items-center justify-center gap-14">
+          <h1 className="text-xl">CATEGORY</h1>
+          <h1 className="text-4xl text-center">MATH</h1>
+        </div>
+
+        <div>
+          <img src={MathLogo} alt="Math logo" className="pt-25" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default MathCategory;
