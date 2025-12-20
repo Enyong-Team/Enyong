@@ -21,7 +21,7 @@ function Setting() {
           <img
             src={closePic}
             alt="CloseButton"
-            className="absolute right-4 cursor-pointer"
+            className="absolute right-4 cursor-pointer active:scale-95"
             onClick={() => navigate(-1)} // closes modal and goes back to Home
           />
         </div>
@@ -31,7 +31,7 @@ function Setting() {
         <div className="flex flex-row items-center justify-center gap-10 p-4">
           {/* Sound */}
           <div
-            className="relative cursor-pointer"
+            className="relative cursor-pointer active:scale-95"
             onClick={() => setSoundOn(!soundOn)}
           >
             <img src={soundPic} alt="SoundButton" />
@@ -44,7 +44,7 @@ function Setting() {
 
           {/* Music */}
           <div
-            className="relative cursor-pointer"
+            className="relative cursor-pointer active:scale-95"
             onClick={() => setMusicOn(!musicOn)}
           >
             <img src={musicPic} alt="MusicButton" />
@@ -57,7 +57,7 @@ function Setting() {
 
           {/* Vibrate */}
           <div
-            className="relative cursor-pointer"
+            className="relative cursor-pointer active:scale-95"
             onClick={() => setVibrateOn(!vibrateOn)}
           >
             <img src={vibratePic} alt="VibrateButton" />

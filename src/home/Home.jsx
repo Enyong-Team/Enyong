@@ -46,7 +46,7 @@ function Home() {
             <img
             src={infoPic}
             alt="info"
-            className="w-[50px] h-12 cursor-pointer" // about button size to
+            className="w-[50px] h-12 cursor-pointer active:scale-95" // about button size to
             onClick={() => navigate("/about", { state: { backgroundLocation: location } })}
             />
            
@@ -58,7 +58,7 @@ function Home() {
                     <img
                         src={accPic}
                         alt="account"
-                        className="w-[50px] h-12 cursor-pointer" // account button size to
+                        className="w-[50px] h-12 cursor-pointer active:scale-95" // account button size to
                     />
                 </Link>
 
@@ -66,7 +66,7 @@ function Home() {
                     <img
                         src={settingPic}
                         alt="settings"
-                        className="w-[50px] h-12 cursor-pointer" // setting button size
+                        className="w-[50px] h-12 cursor-pointer active:scale-95" // setting button size
                         onClick={() => navigate("/setting", { state: { backgroundLocation: location } })}
                     />
             
@@ -171,7 +171,7 @@ function Home() {
              
              <button 
              onClick={() => navigate("/randomize")}
-             className="bg-[#30AD17] rounded-2xl font-LG text-white text-4xl w-[191px] h-[52px]  shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] cursor-pointer">
+             className="bg-[#30AD17] rounded-2xl font-LG text-white text-4xl w-[191px] h-[52px]  shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] cursor-pointer active:scale-95">
               PLAY
             </button>
 
@@ -227,7 +227,7 @@ function Home() {
                                     setShowEarnCoinBtn(false) }}
                                      // PWP CLOSE when EC is clicked
                     className={`
-                         text-sm px-6 p-1 rounded-tr-2xl rounded-br-2xl transition cursor-pointer
+                         text-sm px-6 p-1 rounded-tr-2xl rounded-br-2xl transition cursor-pointer active:scale-95
                         ${showLevelQuarterBtn 
                         ? "bg-green-600 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]"// this palit the kulay ahahah
                         : "bg-[#0A5090]"
@@ -248,7 +248,7 @@ function Home() {
                      <img
                         src={playPic} 
                         alt="play1v1btn"
-                        className="w-[50px] h-[49px] cursor-pointer" // play button size to
+                        className="w-[50px] h-[49px] cursor-pointer active:scale-95" // play button size to
                         />
 
                 </div>
@@ -265,7 +265,7 @@ function Home() {
                      <img
                         src={playPic} 
                         alt="playECbtn"
-                        className="w-[50px] h-[49px] cursor-pointer" // play button size to
+                        className="w-[50px] h-[49px] cursor-pointer active:scale-95" // play button size to
                         />
                     </Link>
                 </div>
@@ -281,7 +281,7 @@ function Home() {
                      <img
                         src={playPic} 
                         alt="playLAQbtn"
-                        className="w-[50px] h-[49px] cursor-pointer" // play button size to
+                        className="w-[50px] h-[49px] cursor-pointer active:scale-95" // play button size to
                         />
 
                 </div>
