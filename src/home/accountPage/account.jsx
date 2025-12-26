@@ -140,11 +140,13 @@ function Account() {
 
       </div>
       {/*Log out*/}
+        <Link to={"/signin"}>
           <div className='flex justify-center items-center    m-20'>
             <img 
             src={LogoutPic} 
             alt="Log Out" />
           </div>
+        </Link>
 
     </div>
   )

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import { CoinProvider } from "./context/coincontext";
 
+
 /* ===== MAIN PAGES ===== */
 import Home from './home/Home';
 import Settings from './home/settingPage/setting.jsx';
@@ -10,6 +11,11 @@ import About from './home/aboutPage/about.jsx'
 import Account from './home/accountPage/account.jsx';
 import DailyG from './home/DailyGoals/dailyGoals.jsx';
 import Game from './Game/game.jsx';
+
+/* ===== AUTHENTICATION PAGES ===== */
+import SignIn from './authentication/signIn.jsx';
+import OtpSignIn from './authentication/otpSignIn.jsx';
+import LoadingScreen from './authentication/loadingScreen.jsx';
 
 //Minigames
 import Ranking from './home/ranking/studentRanking.jsx';
@@ -77,6 +83,12 @@ function App() {
         <Route path="/rank" element={<Rank />} />
         <Route path="/earnCoins" element={<EarnCoins />} />
 
+        {/* AUTHENTICATION PAGES */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/otpsignin" element={<OtpSignIn />} />
+        <Route path="/loading" element={<LoadingScreen />} />
+        
+
         {/* RANDOM SUBJECT ROUTE */}
         <Route path="/randomize" element={<Randomize />} />
 
@@ -123,6 +135,11 @@ function App() {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/rank" element={<Rank />} />
           <Route path="/earnCoins" element={<EarnCoins />} />
+
+          {/* AUTHENTICATION PAGES ROUTES */}
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/otpsignin" element={<OtpSignIn />} />
+          <Route path="/loading" element={<LoadingScreen />} />
 
           {/* RANDOM & CATEGORY ROUTES */}
           <Route path="/randomize" element={<Randomize />} />
