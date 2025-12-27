@@ -16,6 +16,9 @@ import Game from './Game/game.jsx';
 import SignIn from './authentication/signIn.jsx';
 import OtpSignIn from './authentication/otpSignIn.jsx';
 import LoadingScreen from './authentication/loadingScreen.jsx';
+import ForgotPassword from './authentication/forgotpassword/forgotPassword.jsx';
+import VerifyPhoneNumber from './authentication/forgotpassword/verifyPhoneNumber.jsx';
+import CreateNewPassword from './authentication/forgotpassword/createNewPassword.jsx';
 
 //Minigames
 import Ranking from './home/ranking/studentRanking.jsx';
@@ -87,6 +90,9 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/otpsignin" element={<OtpSignIn />} />
         <Route path="/loading" element={<LoadingScreen />} />
+        <Route path="/forgotpass" element={<ForgotPassword />} />
+        <Route path="/verifynumber" element={<VerifyPhoneNumber />} />
+        <Route path="/createnewpass" element={<CreateNewPassword />} />
         
 
         {/* RANDOM SUBJECT ROUTE */}
@@ -140,6 +146,9 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/otpsignin" element={<OtpSignIn />} />
           <Route path="/loading" element={<LoadingScreen />} />
+          <Route path="/forgotpass" element={<ForgotPassword />} />
+          <Route path="/verifynumber" element={<VerifyPhoneNumber />} />
+          <Route path="/createnewpass" element={<CreateNewPassword />} />
 
           {/* RANDOM & CATEGORY ROUTES */}
           <Route path="/randomize" element={<Randomize />} />

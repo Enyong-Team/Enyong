@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import NextBTN from './authButtons/NextBTN.png'
-import BackBTN from './authButtons/BackBTN.png'
+import NextBTN from '../authButtons/NextBTN.png'
+import BackBTN from '../authButtons/BackBTN.png'
+import VerifyLogo from '../forgotpassword/forgotPassPics/VerifyLogo.png'
 
-function otpSignIn() {
+function verifyPhoneNumber() {
   return (
+
     <div>
 
         {/*Back BTN*/}
@@ -12,7 +14,7 @@ function otpSignIn() {
             className=' flex justify-start p-10 pt-10 '>
             <div 
                 className='active:scale-95'>
-                <Link to={"/signin"}>
+                <Link to={"/forgotpass"}>
                     <img 
                         src={BackBTN}
                         alt="" />
@@ -20,28 +22,32 @@ function otpSignIn() {
             </div>
         </div>
 
+        <div className='flex justify-center font-LG'>
+            <h1 className='text-white text-3xl'>
+                VERIFY YOUR PHONE NUMBER
+            </h1>
+        </div>
+
         {/*Game Logo Placeholder*/}
         <div 
             className=' flex justify-center pt-5'>
-            <div 
-                className=' bg-white w-[117px] h-[101px]
-                            items-center flex justify-center
-                            shadow-2xl rounded-2xl'>
-                <h1 className='font-IN text-center'>
-                    Game Logo
-                </h1>
+            <div>
+                <img 
+                    src={VerifyLogo} 
+                    alt="" 
+                />
             </div>
         </div>
 
         {/*OTP Message*/}
-        <div className='text-white font-IN p-6 pt-30'>
+        <div className='text-white font-IN p-6 pt-15'>
             <p className=' text-center text-xl'>
-                An OTP verification code has been sent to your phone number ending in ****</p>
+                Please enter the 4 digit code sent to your phone number ending in ****</p>
         </div>
 
         {/*OTP Input*/}
         <div className='p-6 flex justify-center'>
-            <form action="/loading">
+            <form action="/createnewpass">
                 {/*input otp*/}
                 <div className='space-x-5'>
                     <input type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required
@@ -76,7 +82,8 @@ function otpSignIn() {
 
         
     </div>
+
   )
 }
 
-export default otpSignIn
+export default verifyPhoneNumber
