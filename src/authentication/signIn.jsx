@@ -41,8 +41,11 @@ function signIn() {
 
                 {/* Forgot Password*/}
                 <div className='flex justify-end-safe -mt-5'>
-                    <h1 className='text-white active:scale-95'>
-                        Forgot Password?</h1>
+                    <Link to={"/forgotpass"}>
+                        <h1 className='text-white active:scale-95'>
+                            Forgot Password?
+                        </h1>
+                    </Link>
                 </div>
 
                 {/*Sign IN Button*/}
