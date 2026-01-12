@@ -6,7 +6,10 @@ export function CoinProvider({ children }) {
   const [coins, setCoins] = useState(10);
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
 
-  //Keep track of Tasks || also keeps prevents claiming multiple times
+  // --- NEW: Track Played Dates for Calendar/Trophy ---
+  const [playedDates, setPlayedDates] = useState([]); 
+
+  // Keep track of Tasks || also prevents claiming multiple times
   const [completedGoals, setCompletedGoals] = useState({
     answerQuestions: { done: false, claimed: false },
     openApp: { done: false, claimed: false },
@@ -16,13 +19,23 @@ export function CoinProvider({ children }) {
   const addCoins = (amount) => setCoins(prev => prev + amount);
   const incrementQuestionsAnswered = () => setQuestionsAnswered(prev => prev + 1);
 
-  
+  // Helper to mark today as played (Avoiding duplicates)
+  const markTodayAsPlayed = () => {
+    const todayStr = new Date().toDateString();
+    setPlayedDates(prev => {
+      if (!prev.includes(todayStr)) {
+        return [...prev, todayStr];
+      }
+      return prev;
+    });
+  };
 
   return (
     <CoinContext.Provider value={{
       coins, setCoins, addCoins,
       questionsAnswered, setQuestionsAnswered,
-      completedGoals, setCompletedGoals
+      completedGoals, setCompletedGoals,
+      playedDates, markTodayAsPlayed // Exported for EarnCoin.jsx
     }}>
       {children}
     </CoinContext.Provider>

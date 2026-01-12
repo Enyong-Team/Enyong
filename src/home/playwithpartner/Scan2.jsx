@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { backBtn, header, qr } from "../../assets/assets";
 
 const Scan2 = () => {
@@ -16,8 +16,10 @@ const Scan2 = () => {
   return (
   <div className="min-h-screen flex justify-center p-6">
     <div className="w-full max-w-[420px] flex flex-col items-center">
-      <button className="self-start pb-5">
-        <img src={backBtn} className="active:brightness-75 active:scale-95" onClick={() => navigate(-1)} />
+      <button className="self-start pb-5 cursor-pointer">
+          <Link to="/">
+          <img src={backBtn} alt="Back Button" className="active:brightness-75 active:scale-95" />
+          </Link>
       </button>
       <img src={header} className="mb-16" />
 

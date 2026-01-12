@@ -56,7 +56,8 @@ import myQr from './minigamespics/my-qr.png';
    ========================================= */
 import EarnCoinLogo from './earnCoinPic/EarnCoinLOGO.png';
 import EarnCoinPlayBTN from './earnCoinPic/EarnCoinPlayBTN.png';
-import Trophy from './earnCoinPic/EmptyTrophy.png';
+import EmptyTrophy from './earnCoinPic/EmptyTrophy.png';
+import Trophy from './earnCoinPic/Trophy.png';
 
 /* =========================================
    RANK & TIERS (src/assets/rankPic)
@@ -117,7 +118,7 @@ export {
   // Earn Coin
   EarnCoinLogo, 
   EarnCoinPlayBTN as PlayBTN, 
-  Trophy,
+  Trophy, EmptyTrophy,
 
   // Rank
   RankLogo, MaharlikaB, Mandirigma, Maharlika, 

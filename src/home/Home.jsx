@@ -245,12 +245,13 @@ function Home() {
                 <div className=" w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center " >
 
                     <h1 className='font-LG text-white text-center'>Scan a QR code to challenge a friend in a quiz battle.</h1>
+                    <Link to={"/PlayWithPartner"}>
                      <img
                         src={playPic} 
                         alt="play1v1btn"
                         className="w-[50px] h-[49px] cursor-pointer active:scale-95" // play button size to
                         />
-
+                    </Link>
                 </div>
             </div>
 

@@ -85,6 +85,12 @@ function App() {
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/rank" element={<Rank />} />
         <Route path="/earnCoins" element={<EarnCoins />} />
+        <Route path="/playwithpartner" element={<PlayWithPartner />} />
+        <Route path="/generate1" element={<Generate1 />} />
+        <Route path="/generate2" element={<Generate2 />} />
+        <Route path="/scan1" element={<Scan1 />} />
+        <Route path="/scan2" element={<Scan2 />} />
+        <Route path="/scan3" element={<Scan3 />} />
 
         {/* AUTHENTICATION PAGES */}
         <Route path="/signin" element={<SignIn />} />

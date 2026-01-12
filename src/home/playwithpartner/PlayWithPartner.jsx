@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../index.css";
 import { backBtn, header } from "../../assets/assets";
 
@@ -20,8 +20,11 @@ const PlayWithPartner = () => {
         <div className="flex justify-center min-h-screen p-6">
             <div className="flex flex-col items-center w-full max-w-[420px]">
                 <button className="self-start pb-5 cursor-pointer">
+                    <Link to="/">
                     <img src={backBtn} alt="Back Button" className="active:brightness-75 active:scale-95" />
+                    </Link>
                 </button>
+
                 <img src={header} />
 
                 {/* main section */}

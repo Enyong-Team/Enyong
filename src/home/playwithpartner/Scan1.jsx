@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../index.css";
-import { backBtn, header, profileLg } from "../../assets/assets";
+import { backBtn, header, profileLg, myQr } from "../../assets/assets";
 
 const Scan1 = () => {
   const navigate = useNavigate();
@@ -8,8 +8,10 @@ const Scan1 = () => {
   return (
   <div className="min-h-screen flex justify-center py-6 px-7">
     <div className="w-full max-w-[420px] flex flex-col items-center">
-      <button className="self-start pb-5" onClick={() => navigate(-1)}>
-        <img src={backBtn} className="active:brightness-75 active:scale-95" />
+      <button className="self-start pb-5 cursor-pointer">
+          <Link to="/">
+          <img src={backBtn} alt="Back Button" className="active:brightness-75 active:scale-95" />
+          </Link>
       </button>
       <img src={header} className="mb-16" />
 
