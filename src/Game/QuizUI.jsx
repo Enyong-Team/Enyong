@@ -122,7 +122,7 @@ export default function QuizUI({
       <div className="flex flex-col justify-center items-center -mt-24 w-full">
         
         {/* 1. QUESTION CARD */}
-        <div className="flex justify-center items-center pb-4 relative z-0">
+        <div className="flex justify-center items-center pb-4 mt-15 relative z-0">
           <img
             src={QuizCard}
             className="w-[293px] sm:w-[360px] md:w-[393px] h-auto"

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import QuizUI from "./QuizUI";
-import NextQuestion from "./nextquestion/NextQuestion";
+import NextQuestion from "./nextquestion/nextQuestion";
 import { questions } from "../data/questions"; 
 import { useCoins } from "../context/coincontext";
 
