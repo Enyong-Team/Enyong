@@ -78,6 +78,15 @@ import FirstPlacer from './rankingPic/firstPlacer.png';
 import SecondPlacer from './rankingPic/secondPlacer.png';
 import ThirdPlacer from './rankingPic/thirdPlacer.png';
 
+/* level and quarter */
+import back from "./photo/back.png";
+import banner from "./photo/banner.png";
+import left1 from "./photo/left1.png";
+import right1 from "./photo/right1.png";
+import left2 from "./photo/left2.png";
+import right2 from "./photo/right2.png";
+import startBTN from "./photo/StartLNQ.png";
+
 /* =========================================
    GAME SPECIFIC
    ========================================= */
@@ -126,6 +135,10 @@ export {
 
   // Ranking
   FirstPlacer, SecondPlacer, ThirdPlacer,
+
+
+  //level and quarter
+  back, banner, left1, right1, left2, right2,startBTN,
 
   // Game
   SpinningBG

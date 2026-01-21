@@ -279,12 +279,13 @@ function Home() {
                 <div className=" w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center " >
 
                     <h1 className='font-LG text-white text-center'>Replay lesson-based games by level and quarter to review and improve.</h1>
+                    <Link to={"/levelandquarter"}>
                      <img
                         src={playPic} 
                         alt="playLAQbtn"
                         className="w-[50px] h-[49px] cursor-pointer active:scale-95" // play button size to
                         />
-
+                    </Link>
                 </div>
             </div>
 

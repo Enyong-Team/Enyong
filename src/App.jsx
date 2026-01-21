@@ -24,13 +24,17 @@ import CreateNewPassword from './authentication/forgotpassword/createNewPassword
 import Ranking from './home/ranking/studentRanking.jsx';
 import Rank from './home/rank/rank.jsx'
 import EarnCoins from './home/earnCoin/earnCoin.jsx'
-  //Play With Partner
-  import PlayWithPartner from './home/playwithpartner/PlayWithPartner';
-  import Generate1 from "./home/playwithpartner/Generate1";
-  import Generate2 from "./home/playwithpartner/Generate2";
-  import Scan1 from "./home/playwithpartner/Scan1";
-  import Scan2 from "./home/playwithpartner/Scan2";
-  import Scan3 from "./home/playwithpartner/Scan3";
+
+//Play With Partner
+import PlayWithPartner from './home/playwithpartner/PlayWithPartner';
+import Generate1 from "./home/playwithpartner/Generate1";
+import Generate2 from "./home/playwithpartner/Generate2";
+import Scan1 from "./home/playwithpartner/Scan1";
+import Scan2 from "./home/playwithpartner/Scan2";
+import Scan3 from "./home/playwithpartner/Scan3";
+
+//Level and Quarter
+import LevelQuarter from './home/levelandquarter/levelAndQuarter.jsx';
 
 /* ===== GAME PAGES ===== */
 // Random subject selector
@@ -91,6 +95,7 @@ function App() {
         <Route path="/scan1" element={<Scan1 />} />
         <Route path="/scan2" element={<Scan2 />} />
         <Route path="/scan3" element={<Scan3 />} />
+        <Route path="/levelandquarter" element={<LevelQuarter />} />
 
         {/* AUTHENTICATION PAGES */}
         <Route path="/signin" element={<SignIn />} />
