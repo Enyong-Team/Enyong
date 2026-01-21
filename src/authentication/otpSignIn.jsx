@@ -40,8 +40,8 @@ function otpSignIn() {
         </div>
 
         {/*OTP Input*/}
-        <div className='p-6 flex justify-center'>
-            <form action="/loading">
+        <div className=' flex justify-center'>
+            <form action="/Enyong/loading">
                 {/*input otp*/}
                 <div className='space-x-5'>
                     <input type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required

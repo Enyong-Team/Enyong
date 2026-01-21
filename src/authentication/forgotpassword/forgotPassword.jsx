@@ -38,7 +38,7 @@ function forgotPassword() {
 
           {/*Input Number*/}
             <div>
-              <form action="/verifynumber">
+              <form action="/Enyong/verifynumber">
 
                 {/*Input LRN*/}
                   <div  className=' flex justify-center'>

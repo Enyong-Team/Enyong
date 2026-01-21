@@ -54,7 +54,7 @@ function createNewPassword() {
 
       {/*Sing In Form*/}
       <div className='items-center flex flex-col justify-center '>
-          <form action="/signin" className='space-y-6' onSubmit={handleSubmit}>
+          <form action="/Enyong/signin" className='space-y-6' onSubmit={handleSubmit}>
 
               {/*Input LRN*/}
               <div>
