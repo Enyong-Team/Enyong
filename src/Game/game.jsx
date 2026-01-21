@@ -138,6 +138,6 @@ export default function Game() {
           onHome={() => navigate("/")}
         />
       )}
-    </>
+    </> 
   );
 }

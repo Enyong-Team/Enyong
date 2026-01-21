@@ -134,7 +134,7 @@ export default function QuizUI({
           <div className="absolute inset-0 flex items-center justify-center pt-12">
             <h1 className="w-[238px] text-white text-center text-xl font-FD leading-tight">
               {question}
-            </h1>
+            </h1> 
           </div>
         </div>
 

@@ -25,7 +25,7 @@ function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
 
         {/* Level up section */}
         <div className="flex flex-col justify-center items-center">
-          <h1 className="font-LG text-white text-4xl mb-2">LEVEL UP</h1>
+          <h1 className="font-LG text-white  text-4xl mb-2">LEVEL UP</h1>
 
           <div className="relative flex justify-center items-center">
             <img src={coinPic} alt="coin" className="w-[55px] h-[55px]" />
