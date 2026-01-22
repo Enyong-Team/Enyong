@@ -21,7 +21,7 @@ function About() {
 
     <div className="p-4 text-white text-center ">
       About page content... <br />
-      Pasensya na tropa ako'y nalate. si jokjok aking kadate, jok wag ka mag alala pag ako kasama mo safe na safe
+      
     </div>
 
     <div className=" p-4 absolute right-1 bottom-1  text-white text-center ">
