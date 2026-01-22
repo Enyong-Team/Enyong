@@ -141,7 +141,7 @@ return (
 
           <div className='cursor-pointer' onClick={() => handleGoalClick('openApp', goal2coin)}>
             {completedGoals.openApp.claimed ? (
-              <img src={checkMrk} className='w-[73px] h-[43px]' />
+              <img src={checkMrk} className='w-[43px] h-[23px] pr-3' />
             ) : (
               <img src={goBtn} className='w-[73px] h-[43px]' />
             )}
