@@ -122,7 +122,7 @@ export default function Game() {
     // hint
   const handleHint = () => {
     if (coins < 10) return;
-    if (usedHints >= 3) return;
+    if (usedHints >= 2) return;
 
     const availableWrongOptions = question.choices
       .map((_, index) => index)
@@ -148,7 +148,7 @@ export default function Game() {
         subject={currentSubject} // This will now update dynamically
         difficulty={question.level || "Easy"}
         coins={coins}
-        hints={3 - usedHints}
+        hints={2 - usedHints}
         questionNumber={1} 
         question={question.question}
         choices={question.choices}

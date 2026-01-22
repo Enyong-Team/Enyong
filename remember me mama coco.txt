@@ -17,3 +17,11 @@ npm install react-router-dom@latest
 git pull origin main --allow-unrelated-histories
 
 test lang ng push request
+
+
+
+git add .
+
+git commit -m "Add changes here"
+
+git push origin main
