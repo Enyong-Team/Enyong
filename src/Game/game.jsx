@@ -35,7 +35,7 @@ export default function Game() {
 
 
   // Level up every 10 correct answers
-  const levelNumber = Math.floor(correctCount / 20) + 1;
+  const levelNumber = Math.floor(correctCount / 1) + 1;
   // Level title
   const levelTitle = getLevelTitle(correctCount);
   

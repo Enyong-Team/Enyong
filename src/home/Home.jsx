@@ -7,7 +7,7 @@ import {
   infoPic, accPic, settingPic, 
   scorePic, earthPic, coinPic, plusPic, 
   depedPic, minigamepic, playPic, MaharlikaB, 
-  MandirigmaB, MaestroB,  MarangalB 
+  MandirigmaB, MaestroB,  MarangalB, PlayButton
 } from "../assets/assets";
 
 
@@ -41,7 +41,7 @@ function Home() {
     // from game: level logic
     const correctCount = location.state?.correctCount ?? Number(localStorage.getItem("correctCount")) ?? 0;
     // Auto-calculate level number
-    const levelNumber = Math.floor(correctCount / 20) + 1;
+    const levelNumber = Math.floor(correctCount / 1) + 1;
 
     // Auto-calculate level title
     // Auto-calculate level title
@@ -124,7 +124,7 @@ function Home() {
                         />
 
                         {/* Score placeholder */}
-                        <h1 className="text-xl px-7 border-t-2 border-r-2 border-b-2 border-[#999999] rounded-tr-full rounded-br-full  text-white mt-0.5 mb-1 font-LG">
+                        <h1 className="text-xl px-7 text-center border-t-2 border-r-2 border-b-2 border-[#999999] rounded-tr-full rounded-br-full  text-white mt-0.5 mb-1 font-LG">
                         {showRank}
                         </h1>
 
@@ -143,7 +143,7 @@ function Home() {
                         
 
                         {/* Maharlika placeholder */}
-                        <h1 className="text-sm px-2 p-1  text-center border-t-2 border-r-2 border-b-2 border-[#999999] rounded-tr-full rounded-br-full  text-white mt-0.5 mb-1 font-LG">
+                        <h1 className="text-sm px-2 p-1 fix text-center border-t-2 border-r-2 border-b-2 border-[#999999] rounded-tr-full rounded-br-full  text-white mt-0.5 mb-1 font-LG">
                         {levelTitle}
                         </h1>
 
@@ -204,9 +204,12 @@ function Home() {
              {/* Play Button */}
              
              <button 
-             onClick={() => navigate("/randomize")}
-             className="bg-[#30AD17] rounded-2xl font-LG text-white text-4xl w-[191px] h-[52px]  shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] cursor-pointer active:scale-95">
-              PLAY
+             onClick={() => navigate("/randomize")}>
+              <img 
+                src={PlayButton} 
+                alt="PLAY"
+                className=" w-[191px] h-[52px]  
+                  cursor-pointer active:scale-95" />
             </button>
 
         </div>

@@ -18,6 +18,7 @@ import HintBtn from './ButtonPIC/HintBtn.png';
 import editPic from './ButtonPIC/edit.png';
 import PlayBtnImg from './ButtonPIC/PlayBtn.png';
 import MaharlikaPic from './ButtonPIC/Maharlika.png';
+import PlayButton from './ButtonPIC/mainPlayBTN.png';
 
 // --- SETTINGS BUTTONS ---
 import soundBtn from './ButtonPIC/soundBtn.png';
@@ -103,7 +104,7 @@ export {
   infoPic, accPic, settingPic, 
   closeBtn, closePic, goBtn, 
   HomeBtn, NextQuestionBtn, NextQuestionOrange, HintBtn,
-  editPic, MaharlikaPic,
+  editPic, MaharlikaPic, PlayButton,
   
   // Settings Specific (Exported with your names)
   soundBtn as soundPic, 
