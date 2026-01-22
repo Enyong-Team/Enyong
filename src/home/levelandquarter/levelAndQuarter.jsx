@@ -100,6 +100,8 @@ export default function LevelQuarter() {
         </div>
 
         {/* Start Button */}
+        <Link to="/game">
+        
         <div>
           <img 
           src={startBTN}
@@ -107,6 +109,7 @@ export default function LevelQuarter() {
           className="active:scale-95 cursor-pointer"/>
         
         </div>
+        </Link>
       </div>
     </div>
   );

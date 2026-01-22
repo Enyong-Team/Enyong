@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+
+
 import QuizUI from "./QuizUI";
+
 import NextQuestion from "./nextquestion/nextQuestion";
 import { questions } from "../data/questions"; 
 import { useCoins } from "../context/coincontext";
+
+
 
   //just trying this logic for level
  const getLevelTitle = (correctCount) => {
@@ -34,7 +39,7 @@ export default function Game() {
   }, [correctCount]);
 
 
-  // Level up every 10 correct answers
+  // Level up every 1 correct answers
   const levelNumber = Math.floor(correctCount / 1) + 1;
   // Level title
   const levelTitle = getLevelTitle(correctCount);
@@ -114,7 +119,7 @@ export default function Game() {
       }, 300);
     }
   };
-
+    // hint
   const handleHint = () => {
     if (coins < 10) return;
     if (usedHints >= 3) return;
@@ -137,6 +142,8 @@ export default function Game() {
 
   return (
     <>
+
+
       <QuizUI
         subject={currentSubject} // This will now update dynamically
         difficulty={question.level || "Easy"}

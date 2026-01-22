@@ -176,7 +176,7 @@ function Home() {
           <img
             src={earthPic}
             alt="earth"
-            className="md:w-[94px] md:h-[94px] w-20 h-20
+            className="w-[94px] h-[94px] 
                             max-[380px]:w-15 max-[380px]:h-15 "
           />
 
@@ -258,7 +258,7 @@ function Home() {
       {/* Mini Games*/}
       <div
         className="bg-[#021934] flex justify-center 
-                        items-center flex-col rounded-3xl p-2 
+                        items-center flex-col rounded-3xl p-2 mt-4
                         w-[373px] h-auto max-[380px]:-mt-2
                         max-[380px]:w-90  gap-2"
       >

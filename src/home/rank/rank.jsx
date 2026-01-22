@@ -1,15 +1,52 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import { 
   ReturnBTN, RankLogo, MaharlikaB, 
   Mandirigma, Maharlika, Maestro, Alamat, Marangal, Claim 
 } from "../../assets/assets";
 import coinPic from "../../assets/PIC/coin.png";
 
-function Rank() {
-  const [showCurrentRank, setShowCurrentRank] = useState("Maharlika");
+
+
+
+function Rank({ levelNumber: propLevelNumber, levelTitle: propLevelTitle }) {
+  // Get correctCount from localStorage 
+  const correctCount = Number(localStorage.getItem("correctCount")) || 0;
+
+  // Compute levelNumber
+  const levelNumber = propLevelNumber ?? Math.floor(correctCount / 1) + 1;
+
+  // Function to get level title
+  const getLevelTitle = (correctCount) => {
+    if (correctCount >= 1501) return "MARANGAL";
+    if (correctCount >= 901) return "ALAMAT";
+    if (correctCount >= 501) return "MAESTRO";
+    if (correctCount >= 201) return "MAHARLIKA";
+    return "MANDIRIGMA";
+  };
+
+  // Compute levelTitle 
+  const levelTitle = propLevelTitle ?? getLevelTitle(correctCount);
   const [rewardCoin, setrewardCoin] = useState("25");
 
+  const rankRanges = [
+  { title: "MANDIRIGMA", min: 0, max: 200 },
+  { title: "MAHARLIKA", min: 201, max: 500 },
+  { title: "MAESTRO", min: 501, max: 900 },
+  { title: "ALAMAT", min: 901, max: 1500 },
+  { title: "MARANGAL", min: 1501, max: 2000 }, // you can cap it higher if needed
+];
+
+// Find current rank info
+const currentRank = rankRanges.find(
+  (rank) => levelNumber >= rank.min && levelNumber <= rank.max
+) || rankRanges[0];
+
+// Calculate progress percentage within current rank
+const progressPercent = Math.min(
+  ((correctCount - currentRank.min) / (currentRank.max - currentRank.min)) * 100,
+  100
+);
   return (
     <div>
       <div className="p-3 space-y-5">
@@ -36,24 +73,29 @@ function Rank() {
                 {/*Current Rank*/}
                 <div>
                 <div className="flex gap-3">
-                    <h1 className="text-white font-LG ">Current:</h1>
-                    <h1 className="text-[#2AFF00] font-LG">{showCurrentRank}</h1>
+                    <h1 className="text-white font-LG ">Current:  </h1>
+                    <h1 className="text-[#2AFF00] font-LG">{currentRank.title}</h1>
                 </div>
                 </div>
 
                 {/*Progress Bar*/}
                 <div className="">
-                <div className="bg-white rounded-full w-[270px]">
-                    <div className="bg-green-600 p-2 w-[50%] rounded-full"></div>
-                </div>
+                {/* Progress Bar */}
+                    <div className="bg-white rounded-full w-[270px] h-4 overflow-hidden">
+                    <div
+                        className="bg-green-600 h-4 rounded-full transition-all duration-500"
+                        style={{ width: `${progressPercent}%` }}
+                    ></div>
+                    </div>
+
+                    {/* Show current rank range */}
+                    <p className="text-white text-center font-LG text-xs">
+                    {levelNumber}-{currentRank.max}
+                    </p>
+
                 </div>
 
-                {/*100-200*/}
-                <div>
-                <h1 className="text-white text-center font-LG text-xs">
-                    100-200
-                </h1>
-                </div>
+
             </div>
             </div>
         </div>
@@ -195,7 +237,7 @@ function Rank() {
                     </p>
 
                     {/* Coin  */}
-                    <div className="-mt-2">
+                    <div className="-mt-4">
 
                         {/* Coin image */}
                         <img 
@@ -234,16 +276,16 @@ function Rank() {
                     <img 
                         src={Alamat} 
                         alt="ALAMAT" 
-                        className="" 
+                        className="-mt-0.5" 
                     />
 
                     <p 
-                        className="font-FD -mt-">
+                        className="font-FD mt-2">
                         Rank Reward
                     </p>
 
                     {/* Coin  */}
-                    <div className="-mt-2">
+                    <div className="-mt-4">
 
                         {/* Coin image */}
                         <img 
