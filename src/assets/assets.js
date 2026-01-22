@@ -64,6 +64,9 @@ import Trophy from './earnCoinPic/Trophy.png';
    ========================================= */
 import RankLogo from './rankPic/rankLogo.png';
 import MaharlikaB from './rankPic/maharlikaB.png';
+import MarangalB from './rankPic/marangalB.png'
+import MaestroB from './rankPic/maestroB.png'
+import MandirigmaB from './rankPic/mandirigmaB.png';
 import Mandirigma from './rankPic/mandirigmaPic.png';
 import Maharlika from './rankPic/maharlikaPic.png';
 import Maestro from './rankPic/maestroPic.png';
@@ -131,7 +134,8 @@ export {
 
   // Rank
   RankLogo, MaharlikaB, Mandirigma, Maharlika, 
-  Maestro, Alamat, Marangal, Claim,
+  Maestro, Alamat, Marangal, Claim, MarangalB, 
+  MandirigmaB, MaestroB,
 
   // Ranking
   FirstPlacer, SecondPlacer, ThirdPlacer,

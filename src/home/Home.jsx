@@ -6,8 +6,11 @@ import { useCoins } from "../context/coincontext";
 import { 
   infoPic, accPic, settingPic, 
   scorePic, earthPic, coinPic, plusPic, 
-  depedPic, minigamepic, playPic, MaharlikaPic 
+  depedPic, minigamepic, playPic, MaharlikaB, 
+  MandirigmaB, MaestroB,  MarangalB 
 } from "../assets/assets";
+
+
 
 function Home() {
 
@@ -22,8 +25,8 @@ function Home() {
     const [showLevelQuarterBtn, setShowLevelQuarterBtn] = useState(false);// Level & quarter
     const [showCoin, setShowCoin] = useState("10");// coins //disabled for now, change showCoin to Coins
     const [showRank, setShowRank] = useState("123");// Ranking
-    const [showLevel, setShowLevel] = useState("Maharlika");// Level or maharlika ahaha anagas
-    
+
+
     //WebWide Coin
     const { coins } = useCoins();
 
@@ -34,7 +37,22 @@ function Home() {
     // Automatically mark daily login as completed
     setDailyLoginDone(true);
     }, []);
-    
+
+
+    const correctCount = location.state?.correctCount ?? 0;
+    const levelTitle = location.state?.levelTitle ?? "MANDIRIGMA";
+
+    // Map level titles to images
+    const levelImages = {
+        "MANDIRIGMA": MandirigmaB,
+        "MAHARLIKA": MaharlikaB,
+        "MAESTRO": MaestroB,
+        "ALAMAT": MaharlikaB,   
+        "MARANGAL": MarangalB
+    };
+
+    const currentLevelImage = levelImages[levelTitle] ?? MandirigmaB;
+        
   return (
     <div className="min-h-screen w-full max-w-full overflow-hidden p-5 flex flex-col items-center gap-5 relative z-0">
 
@@ -102,15 +120,15 @@ function Home() {
                         {/* maharlika */}
                         
                             <img
-                            src={MaharlikaPic}
+                            src={currentLevelImage}
                             alt="score"
-                            className="w-10 h-10"
+                            className="w-10 h-10 bg-[#021934] rounded-lg p-1"
                             />
                         
 
                         {/* Maharlika placeholder */}
                         <h1 className="text-sm px-2 p-1  text-center border-t-2 border-r-2 border-b-2 border-[#999999] rounded-tr-full rounded-br-full  text-white mt-0.5 mb-1 font-LG">
-                        {showLevel}
+                        {levelTitle}
                         </h1>
 
                     </div>

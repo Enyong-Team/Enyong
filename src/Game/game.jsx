@@ -6,10 +6,35 @@ import NextQuestion from "./nextquestion/nextQuestion";
 import { questions } from "../data/questions"; 
 import { useCoins } from "../context/coincontext";
 
+
+ const getLevelTitle = (correctCount) => {
+  if (correctCount >= 1501) return "MARANGAL";
+  if (correctCount >= 901) return "ALAMAT";
+  if (correctCount >= 501) return "MAESTRO";
+  if (correctCount >= 201) return "MAHARLIKA";
+  return "MANDIRIGMA";
+  };
+
+
+
 export default function Game() {
   const navigate = useNavigate();
   const location = useLocation();
   const { coins, setCoins } = useCoins();
+
+  
+
+  //just trying this logic for level
+  const [correctCount, setCorrectCount] = useState(
+    location.state?.correctCount ?? Number(localStorage.getItem("correctCount")) ?? 0
+  );
+
+   useEffect(() => {
+    localStorage.setItem("correctCount", correctCount);
+  }, [correctCount]);
+
+  const levelTitle = getLevelTitle(correctCount);
+  
 
   // Defaults to science if somehow the other subjects are missing
   const [currentSubject, setCurrentSubject] = useState(location.state?.subject || "Science"); 
@@ -78,6 +103,9 @@ export default function Game() {
     if (Number(idx) === Number(question.correctIndex)) {
       setTimeout(() => {
         setCoins((c) => c + 3);
+
+        setCorrectCount((prev) => prev + 1);
+
         setShowNextModal(true);
       }, 300);
     }
@@ -129,14 +157,24 @@ export default function Game() {
         onOpenDailyGoals={() => navigate("/dailyGoals", { state: { backgroundLocation: location } })}
       />
 
+
+
+
       {/* When Green Modal Button is clicked (Correct Answer), it also Randomizes */}
       {showNextModal && (
-        <NextQuestion
-          coins={coins}
-          rewardCoin={3}
-          onNext={fetchQuestion} 
-          onHome={() => navigate("/")}
-        />
+       <NextQuestion
+        coins={coins}
+        rewardCoin={3}
+        onNext={fetchQuestion}
+        onHome={() =>
+          navigate("/", {
+              state: {
+              correctCount,
+              levelTitle,
+            },
+          })
+        }
+      />
       )}
     </> 
   );

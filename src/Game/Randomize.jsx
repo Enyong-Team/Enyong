@@ -21,7 +21,7 @@ function Randomize() {
     const timer = setTimeout(() => {
       const randomPage = pages[Math.floor(Math.random() * pages.length)];
       if (randomPage) navigate(randomPage);
-    }, 1300); 
+    }, 10); 
 
     return () => clearTimeout(timer);
   }, [navigate]);

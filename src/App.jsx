@@ -190,7 +190,7 @@ function App() {
 
 export default function AppWrapper() {
   return (
-    <BrowserRouter basename="/Enyong">
+    <BrowserRouter basename="/Enyong/">
       <CoinProvider>
         <App />
       </CoinProvider>
