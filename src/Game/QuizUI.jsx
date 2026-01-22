@@ -68,45 +68,66 @@ export default function QuizUI({
     >
        <div className="flex justify-between pb-2">
         <button onClick={onBack}>
-          <img src={ReturnPic} className="h-12 active:scale-95" alt="back" />
+          <img 
+            src={ReturnPic} 
+            className="h-12 active:scale-
+                        max-[380px]:w-9 max-[380px]:h-9" 
+            alt="back" />
         </button>
 
         <img
           src={settingPic}
-          className="h-12 cursor-pointer active:scale-95"
+          className="h-12 cursor-pointer active:scale-95
+                    max-[380px]:w-9 max-[380px]:h-9"
           onClick={onOpenSettings}
           alt="settings"
         />
       </div>
 
       {/* Subject */}
-      <div className="flex justify-center pb-4">
-        <div className="bg-[#081E41] border-2 border-white shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] cursor-pointer px-10 h-10 flex justify-center items-center rounded-full">
-          <h1 className="text-white font-bold font-IN">{subject}</h1>
+      <div className="flex justify-center pb-4 max-[380px]:pb-2">
+        <div className="bg-[#081E41] border-2 border-white shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] 
+                    cursor-pointer px-10 h-10 max-[380px]:h-8 flex justify-center items-center rounded-full">
+          <h1 className="text-white max-[380px]:text-sm font-bold font-IN">{subject}</h1>
         </div>
       </div>
       
       {/* Difficulty + Coins */}
       <div className="flex justify-between relative z-10">
-        <div className="bg-[#081E41] border-2 border-white shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] cursor-pointer px-4 h-10 flex justify-center items-center rounded-full">
-          <h1 className="text-white font-bold font-IN">{difficulty}</h1>
+        <div className="bg-[#081E41] border-2 border-white shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] 
+                        cursor-pointer px-4 h-10 max-[380px]:h-8 flex justify-center items-center rounded-full">
+          <h1 className="text-white max-[380px]:text-sm font-bold font-IN">{difficulty}</h1>
         </div>
 
         <div>
-          <div className="flex items-center bg-[#084E99] shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] h-10 border-2 rounded-full border-white px-2 gap-2 mb-2">
-            <img src={coinPic} className="w-10 h-10" alt="coin" />
-            <span className="font-LG text-white text-xl">{coins}</span>
+          <div className="flex items-center bg-[#084E99] shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] h-10 max-[380px]:h-8.5
+                          border-2 rounded-full border-white px-2 gap-2 mb-2">
+            <img 
+              src={coinPic} 
+              className="w-10 h-10
+                        max-[380px]:w-7 max-[380px]:h-7" 
+              alt="coin" />
+              
+            <span className="font-LG text-white max-[380px]:text-lg text-xl">
+              {coins}
+            </span>
+
             <img
               src={plusPic}
-              className="w-8 h-8 mt-1 cursor-pointer active:scale-95"
+              className="w-8 h-8 
+                        max-[380px]:w-7 max-[380px]:h-7
+                        mt-1 cursor-pointer active:scale-95"
               onClick={onOpenDailyGoals}
               alt="plus"
             />
           </div>
 
-          <div className="flex justify-end cursor-pointer" onClick={onHint}>
-            <div className="flex p-0 flex-row justify-center active:scale-95 bg-[#299C2F] shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] border-2 rounded-full border-white px-1 items-center mb-5 w-auto">
-              <img src={HintBtn} className="w-9 h-9" alt="hint" />
+          <div className="flex justify-end cursor-pointer" 
+              onClick={onHint}>
+            <div className="flex p-0 flex-row justify-center active:scale-95 bg-[#299C2F] 
+                          shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] border-2 rounded-full 
+                          border-white px-1 items-center mb-5 w-auto">
+              <img src={HintBtn} className="w-9 h-9 max-[380px]:h-7" alt="hint" />
               <div className="bg-black/50 rounded-4xl px-2 items-center py-1 flex justify-center gap-1">
                 <img src={coinPic} className="w-6 h-6" alt="coin" />
                 <span className="font-LG text-center text-white text-sm">
@@ -123,17 +144,20 @@ export default function QuizUI({
       <div className="flex flex-col justify-center items-center -mt-24 w-full">
         
         {/* 1. QUESTION CARD */}
-        <div className="flex justify-center items-center pb-4 mt-15 relative z-0">
+        <div className="flex justify-center items-center 
+                        pb-4 mt-15 
+                        relative z-0">
           <img
             src={QuizCard}
-            className="w-[293px] sm:w-[360px] md:w-[393px] h-auto"
+            className="w-[293px] sm:w-[360px] md:w-[393px] 
+                      max-[380px]:w-[273px] max-[380px]:h-[250px] "
             alt="Quiz Card"
           />
           <div className="absolute flex-col -top-1.5 left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full flex items-center justify-center text-white text-xl font-FD pt-1">
             {levelNumber}
             <h1 className="text-xs ">Level</h1>
           </div>
-          <div className="absolute inset-0 flex items-center justify-center pt-12">
+          <div className="absolute inset-0 flex items-center justify-center pt-12 max-[380px]:mb-15 ">
             <h1 className="w-[238px] text-white text-center text-xl font-FD leading-tight">
               {question}
             </h1> 
@@ -141,7 +165,8 @@ export default function QuizUI({
         </div>
 
         {/* 2. CHOICES */}
-        <div className="flex flex-col justify-start space-y-2 mx-auto w-full items-center z-10">
+        <div className="flex flex-col justify-start space-y-3 max-[380px]:space-y-1.5
+                       mx-auto w-full items-center z-10">
           {choices.map((text, idx) => {
             const isRemoved = removedOptions && removedOptions.includes(idx);
             const optionColor = getOptionColor(idx);
@@ -149,28 +174,34 @@ export default function QuizUI({
             return (
               <div
                 key={idx}
-                className={`flex flex-row items-center justify-start w-full max-w-[400px] active:scale-95 cursor-pointer 
+                className={`flex flex-row items-center justify-start w-full max-w-[400px] max-[380px]:w-[300px]
+                           active:scale-95 cursor-pointer 
                   ${isRemoved ? "pointer-events-none cursor-not-allowed" : ""}`}
                 onClick={() => onChoiceClick(idx)}
               >
                 <div
-                  className={`rounded-full h-12 flex items-center px-4 ${optionColor} shadow-[inset_0_0_5px_rgba(0,0,0,0.6)] shrink-0 -mr-5 z-10 transition-colors duration-300`}
+                  className={`rounded-full max-[380px]:h-10 h-12 flex items-center px-4 
+                    ${optionColor} shadow-[inset_0_0_5px_rgba(0,0,0,0.6)] shrink-0 -mr-5 z-10 transition-colors duration-300`}
                 >
-                  <h1 className="text-white text-xl font-FD cursor-pointer">
+                  <h1 className="text-white text-xl max-[380px]:text-lg font-FD cursor-pointer">
                     {letters[idx]}
                   </h1>
                 </div>
 
                 <div
-                  className={`relative flex justify-center items-center rounded-full shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] text-white flex-1 wrap-break-word text-xl font-FD cursor-pointer ${optionColor} transition-colors duration-300`}
+                  className={`relative flex justify-center items-center rounded-full shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] 
+                            text-white flex-1 wrap-break-word text-xl max-[380px]:text-lg font-FD cursor-pointer 
+                            ${optionColor} transition-colors duration-300`}
                   style={{
                     WebkitMask:
                       "radial-gradient(circle 30px at 0% 50%, transparent 98%, black 100%)",
                     mask: "radial-gradient(circle 30px at 0% 50%, transparent 98%, black 100%)",
                   }}
                 >
-                  <div className="px-15 py-0">
-                    <h1 className="p-2 py-2.5 pl-7">{text}</h1>
+                  <div className="px-8 py-0">
+                    <h1 className="p-2 py-2.5 pl-7
+                                  max-[380px]:py-1.5
+                                  ">{text}</h1>
                   </div>
                 </div>
               </div>
@@ -182,12 +213,14 @@ export default function QuizUI({
         {/* Rendered normally in the flow, BELOW the choices */}
         {isWrong && (
             <div 
-                className="mt-6 cursor-pointer active:scale-95 z-20"
+                className="mt-6 cursor-pointer active:scale-95 z-20
+                          max-[380px]:mt-2"
                 onClick={onNext}
             >
                 <img 
                     src={NextQuestionOrange} 
-                    className="w-48 h-auto object-contain" 
+                    className="w-48 h-auto object-contain
+                              max-[380px]:w-40" 
                     alt="Next Question"
                 />
             </div>
