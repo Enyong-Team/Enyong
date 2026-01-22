@@ -32,6 +32,7 @@ export default function QuizUI({
   onOpenSettings, 
   onOpenDailyGoals,
   onNext, 
+  levelNumber, 
 }) {
   const letters = ["A", "B", "C", "D"];
 
@@ -128,8 +129,9 @@ export default function QuizUI({
             className="w-[293px] sm:w-[360px] md:w-[393px] h-auto"
             alt="Quiz Card"
           />
-          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full flex items-center justify-center text-white text-2xl font-FD">
-            {questionNumber}
+          <div className="absolute flex-col -top-1.5 left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full flex items-center justify-center text-white text-xl font-FD pt-1">
+            {levelNumber}
+            <h1 className="text-xs ">Level</h1>
           </div>
           <div className="absolute inset-0 flex items-center justify-center pt-12">
             <h1 className="w-[238px] text-white text-center text-xl font-FD leading-tight">

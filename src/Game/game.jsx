@@ -6,7 +6,7 @@ import NextQuestion from "./nextquestion/nextQuestion";
 import { questions } from "../data/questions"; 
 import { useCoins } from "../context/coincontext";
 
-
+  //just trying this logic for level
  const getLevelTitle = (correctCount) => {
   if (correctCount >= 1501) return "MARANGAL";
   if (correctCount >= 901) return "ALAMAT";
@@ -15,7 +15,7 @@ import { useCoins } from "../context/coincontext";
   return "MANDIRIGMA";
   };
 
-
+  
 
 export default function Game() {
   const navigate = useNavigate();
@@ -33,6 +33,10 @@ export default function Game() {
     localStorage.setItem("correctCount", correctCount);
   }, [correctCount]);
 
+
+  // Level up every 10 correct answers
+  const levelNumber = Math.floor(correctCount / 20) + 1;
+  // Level title
   const levelTitle = getLevelTitle(correctCount);
   
 
@@ -144,6 +148,7 @@ export default function Game() {
         selected={selected}
         correctIndex={question.correctIndex}
         removedOptions={removedOptions}
+        levelNumber ={levelNumber}
         
         onChoiceClick={handleChoiceClick}
         onHint={handleHint}
@@ -171,6 +176,7 @@ export default function Game() {
               state: {
               correctCount,
               levelTitle,
+              levelNumber, 
             },
           })
         }

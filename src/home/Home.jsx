@@ -38,9 +38,25 @@ function Home() {
     setDailyLoginDone(true);
     }, []);
 
+    // from game: level logic
+    const correctCount = location.state?.correctCount ?? Number(localStorage.getItem("correctCount")) ?? 0;
+    // Auto-calculate level number
+    const levelNumber = Math.floor(correctCount / 20) + 1;
 
-    const correctCount = location.state?.correctCount ?? 0;
-    const levelTitle = location.state?.levelTitle ?? "MANDIRIGMA";
+    // Auto-calculate level title
+    // Auto-calculate level title
+    const getLevelTitle = (correctCount) => {
+        if (correctCount >= 1501) return "MARANGAL";
+        if (correctCount >= 901) return "ALAMAT";
+        if (correctCount >= 501) return "MAESTRO";
+        if (correctCount >= 201) return "MAHARLIKA";
+        return "MANDIRIGMA";
+    };
+    const levelTitle = getLevelTitle(correctCount);
+
+
+
+
 
     // Map level titles to images
     const levelImages = {
@@ -173,7 +189,7 @@ function Home() {
 
             {/* Level */}
             <h1 className='flex justify-center font-LG text-2xl text-white mr-4'>
-                Level 123
+                Level {levelNumber}
             </h1>
 
            
