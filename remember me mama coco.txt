@@ -25,3 +25,6 @@ git add .
 git commit -m "Add changes here"
 
 git push origin main
+
+
+npm run deploy"para ma deploy sa git"
