@@ -167,7 +167,7 @@ function Home() {
             className="flex flex-row max-[323px]:flex-col h-10 max-[323px]:h-auto
                        border rounded-full border-white items-center
                        space-x-2 max-[380px]:space-x-2 max-[340px]:space-y-1
-                       shadow-inner shadow-black/30 mb-5 px-2"
+                       shadow-inner shadow-black/30 mb-5  max-[395px]:pr-2 "
           >
             <img
               src={coinPic}
@@ -182,8 +182,8 @@ function Home() {
             <img
               src={plusPic}
               alt="plus"
-              className="md:w-9 md:h-9 w-8 h-8 max-[380px]:w-7 max-[380px]:h-7 
-                         max-[380px]:mr-1 mt-1.5 mr-1 cursor-pointer"
+              className=" w-8 h-8 max-[380px]:w-7 max-[380px]:h-7 
+                         max-[391px]:mr-1  mt-1.5 mr-2 cursor-pointer"
               onClick={() =>
                 navigate("/dailyGoals", {
                   state: { backgroundLocation: location },
