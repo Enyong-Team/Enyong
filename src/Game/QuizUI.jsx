@@ -183,14 +183,14 @@ export default function QuizUI({
                   className={`rounded-full max-[380px]:h-10 h-12 flex items-center px-4 
                     ${optionColor} shadow-[inset_0_0_5px_rgba(0,0,0,0.6)] shrink-0 -mr-5 z-10 transition-colors duration-300`}
                 >
-                  <h1 className="text-white text-xl max-[380px]:text-lg font-FD cursor-pointer">
+                  <h1 className="text-white text-xl max-[380px]:text-sm font-FD cursor-pointer">
                     {letters[idx]}
                   </h1>
                 </div>
 
                 <div
                   className={`relative flex justify-center items-center rounded-full shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] 
-                            text-white flex-1 wrap-break-word text-xl max-[380px]:text-lg font-FD cursor-pointer 
+                            text-white flex-1 wrap-break-word text-xl max-[380px]:text-sm font-FD cursor-pointer 
                             ${optionColor} transition-colors duration-300`}
                   style={{
                     WebkitMask:
@@ -198,9 +198,9 @@ export default function QuizUI({
                     mask: "radial-gradient(circle 30px at 0% 50%, transparent 98%, black 100%)",
                   }}
                 >
-                  <div className="px-8 py-0">
+                  <div className="px-5 py-0">
                     <h1 className="p-2 py-2.5 pl-7
-                                  max-[380px]:py-1.5
+                                  max-[380px]:py-2.5
                                   ">{text}</h1>
                   </div>
                 </div>

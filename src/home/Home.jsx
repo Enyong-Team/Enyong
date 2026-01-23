@@ -62,7 +62,7 @@ function Home() {
     if (correctCount >= 1501) return "MARANGAL";
     if (correctCount >= 901) return "ALAMAT";
     if (correctCount >= 501) return "MAESTRO";
-    if (correctCount >= 201) return "MAHARLIKA";
+    if (correctCount >= 20) return "MAHARLIKA";
     return "MANDIRIGMA";
   };
   const levelTitle = getLevelTitle(correctCount);
