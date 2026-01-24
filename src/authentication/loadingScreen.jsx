@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import baliwagLogo from './authButtons/baliwagLogo.jpg'
 
 function loadingScreen() {
 
@@ -30,12 +31,13 @@ const navigate = useNavigate();
         <div 
             className=' flex justify-center pt-40'>
             <div 
-                className=' bg-[#1C7CE2] w-40 h-40
+                className='
                             items-center flex justify-center
-                            shadow-2xl rounded-full'>
-                <h1 className='font-IN text-center text-xl'>
-                    Game Logo
-                </h1>
+                            shadow-2xl rounded-full p-1 '>
+                <img
+                 src={baliwagLogo} 
+                 alt="Logo"
+                 className='w-[180px] rounded-full p-1 h-[180px]' />
             </div>
         </div>
 

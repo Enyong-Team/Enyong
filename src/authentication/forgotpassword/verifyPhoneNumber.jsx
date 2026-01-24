@@ -22,8 +22,8 @@ function verifyPhoneNumber() {
             </div>
         </div>
 
-        <div className='flex justify-center font-LG'>
-            <h1 className='text-white text-3xl'>
+        <div className='flex justify-center font-LG items-center'>
+            <h1 className='text-white items-center text-center text-3xl'>
                 VERIFY YOUR PHONE NUMBER
             </h1>
         </div>
@@ -46,10 +46,10 @@ function verifyPhoneNumber() {
         </div>
 
         {/*OTP Input*/}
-        <div className='p-6 flex justify-center'>
+        <div className='p-3 flex justify-center'>
             <form action="/Enyong/createnewpass">
                 {/*input otp*/}
-                <div className='space-x-5'>
+                <div className='space-x-2'>
                     <input type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required
                                 className="bg-[#1C7CE2]  rounded-2xl h-20 w-20  text-white 
                                     focus:outline-none focus:ring-2 focus:ring-blue-400

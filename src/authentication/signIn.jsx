@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import SignInBTN from './authButtons/SignInBTN.png'
+import baliwagLogo from './authButtons/baliwagLogo.jpg'
 
 
 function signIn() {
@@ -9,14 +10,15 @@ function signIn() {
 
         {/*Game Logo Placeholder*/}
         <div 
-            className=' flex justify-center pt-30'>
+            className=' flex justify-center pt-30 '>
             <div 
-                className=' bg-white w-[117px] h-[101px]
+                className='
                             items-center flex justify-center
-                            shadow-2xl rounded-2xl'>
-                <h1 className='font-IN text-center'>
-                    Game Logo
-                </h1>
+                            shadow-2xl rounded-full p-1 '>
+                <img
+                 src={baliwagLogo} 
+                 alt="Logo"
+                 className='w-[180px] rounded-full p-1 h-[180px]' />
             </div>
         </div>
 

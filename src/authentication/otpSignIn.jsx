@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import NextBTN from './authButtons/NextBTN.png'
 import BackBTN from './authButtons/BackBTN.png'
+import baliwagLogo from './authButtons/baliwagLogo.jpg'
 
 function otpSignIn() {
   return (
@@ -23,14 +24,15 @@ function otpSignIn() {
         {/*Game Logo Placeholder*/}
         <div 
             className=' flex justify-center pt-5'>
-            <div 
-                className=' bg-white w-[117px] h-[101px]
-                            items-center flex justify-center
-                            shadow-2xl rounded-2xl'>
-                <h1 className='font-IN text-center'>
-                    Game Logo
-                </h1>
-            </div>
+           <div 
+                           className='
+                                       items-center flex justify-center
+                                       shadow-2xl rounded-full p-1 '>
+                           <img
+                            src={baliwagLogo} 
+                            alt="Logo"
+                            className='w-[180px] rounded-full p-1 h-[180px]' />
+                       </div>
         </div>
 
         {/*OTP Message*/}
@@ -43,7 +45,7 @@ function otpSignIn() {
         <div className=' flex justify-center'>
             <form action="/Enyong/loading">
                 {/*input otp*/}
-                <div className='space-x-5'>
+                <div className='space-x-2'>
                     <input type="text" inputmode="numeric" pattern="[0-9]" maxlength="1" required
                                 className="bg-[#1C7CE2]  rounded-2xl h-20 w-20  text-white 
                                     focus:outline-none focus:ring-2 focus:ring-blue-400
