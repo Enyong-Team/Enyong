@@ -24,7 +24,7 @@ function signIn() {
 
         {/*Sing In Form*/}
         <div className='items-center flex flex-col justify-center pt-30'>
-            <form action="/Enyong/otpsignin/" className='space-y-6'>
+            <form action="/otpsignin/" className='space-y-6'>
                 {/*Input LRN*/}
                 <div>
                     <input type="text" id="lrn" required
