@@ -24,7 +24,7 @@ function signIn() {
 
         {/*Sing In Form*/}
         <div className='items-center flex flex-col justify-center pt-30'>
-            <form action="/Enyong/otpsignin/" className='space-y-6'>
+            <form action="/Enyong/otpsignin" className='space-y-6'>
                 {/*Input LRN*/}
                 <div>
                     <input type="text" id="lrn" required
@@ -43,7 +43,7 @@ function signIn() {
 
                 {/* Forgot Password*/}
                 <div className='flex justify-end-safe -mt-5'>
-                    <Link to={"/Enyong/forgotpass/"}>
+                    <Link to={"/forgotpass"}>
                         <h1 className='text-white active:scale-95'>
                             Forgot Password?
                         </h1>
