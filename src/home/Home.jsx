@@ -18,7 +18,9 @@ import {
   MandirigmaB,
   MaestroB,
   MarangalB,
+  AlamatB,
   PlayButton,
+  
 } from "../assets/assets";
 
 function Home() {
@@ -70,7 +72,7 @@ function Home() {
     MANDIRIGMA: MandirigmaB,
     MAHARLIKA: MaharlikaB,
     MAESTRO: MaestroB,
-    ALAMAT: MaharlikaB,
+    ALAMAT: AlamatB,
     MARANGAL: MarangalB,
   };
 
