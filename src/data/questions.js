@@ -203,7 +203,7 @@ export const questions = [
     level: "Medium",
     question: "What is the value of x if 2x + 5 = 15?",
     choices: ["3", "4", "5", "6"],
-    correctIndex: 1
+    correctIndex: 2
   },
   {
     id: 24,
