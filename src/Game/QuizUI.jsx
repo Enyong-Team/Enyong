@@ -153,12 +153,12 @@ export default function QuizUI({
                       max-[380px]:w-[273px] max-[380px]:h-[250px] "
             alt="Quiz Card"
           />
-          <div className="absolute flex-col -top-1.5 left-1/2 -translate-x-1/2 w-[72px] h-[72px] rounded-full flex items-center justify-center text-white text-xl font-FD pt-1">
+          <div className="absolute flex-col -top-1.5 left-1/2  max-[380px]:text-sm -translate-x-1/2 w-[72px] h-[72px] rounded-full flex items-center justify-center text-white text-xl font-FD pt-1">
             {levelNumber}
             <h1 className="text-xs ">Level</h1>
           </div>
           <div className="absolute inset-0 flex items-center justify-center pt-12 max-[380px]:mb-15 ">
-            <h1 className="w-[238px] text-white text-center text-xl font-FD leading-tight">
+            <h1 className="w-[238px] text-white text-center   max-[380px]:text-sm text-xl font-FD leading-tight">
               {question}
             </h1> 
           </div>
