@@ -158,7 +158,7 @@ export default function QuizUI({
             <h1 className="text-xs ">Level</h1>
           </div>
           <div className="absolute inset-0 flex items-center justify-center pt-12 max-[380px]:mb-15 ">
-            <h1 className="w-[238px] text-white text-center   max-[380px]:text-sm text-xl font-FD leading-tight">
+            <h1 className="w-[238px] text-white text-center   max-[340px]:text-sm text-xl font-FD leading-tight">
               {question}
             </h1> 
           </div>
