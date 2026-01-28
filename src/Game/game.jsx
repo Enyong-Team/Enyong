@@ -141,7 +141,7 @@ export default function Game() {
     //wrong answer sound
     wrongAudioRef.current = new Audio(wrongSound);
     wrongAudioRef.current.volume = 0.4;
-    wrongAudioRef.current.playbackRate = 2.5;
+    wrongAudioRef.current.playbackRate = 3.0;
   }, []);
 
 
