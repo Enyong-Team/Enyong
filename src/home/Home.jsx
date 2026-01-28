@@ -2,6 +2,7 @@ import "./Home.css";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useCoins } from "../context/coincontext";
+import soundBG from '../assets/music/sampleSong.wav'
 
 import {
   infoPic,
@@ -77,6 +78,30 @@ function Home() {
   };
 
   const currentLevelImage = levelImages[levelTitle] ?? MandirigmaB;
+
+  //MUSIC 
+  useEffect(() => {
+  //  ONE global audio instance (prevents layering)
+  if (!window.bgMusic) {
+    const audio = new Audio(soundBG);
+    audio.loop = true;
+    audio.volume = 0.4;
+    window.bgMusic = audio;
+
+    const unlockAndPlay = () => {
+      audio.play().catch(() => {});
+      window.removeEventListener("click", unlockAndPlay);
+    };
+
+    // Try autoplay first
+    audio.play().catch(() => {
+      // If blocked, play on first click
+      window.addEventListener("click", unlockAndPlay);
+    });
+  }
+}, []);
+
+
 
   return (
     <div className="min-h-screen w-full max-w-full overflow-hidden p-5 flex flex-col items-center gap-5 relative z-0">
