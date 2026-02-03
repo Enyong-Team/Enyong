@@ -19,8 +19,8 @@ function About() {
       />
     </div>
 
-    <div className="p-4 text-white text-center ">
-      About page content... <br />
+    <div className="p-6 px-15 text-white text-center">
+      BaliwagHenyo Mindquest Explorer is a fun and exciting learning game for Grades 4–6! Solve quizzes, puzzles, and challenges to practice your skills, explore history and culture, and test your knowledge. Play alone or with friends, level up, and become a true Baliwag Henyo while preparing for important exams in a fun way! <br />
       
     </div>
 
