@@ -1,8 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import correctSound from '../assets/music/correctAnswer.wav'
-import wrongSound from '../assets/music/wrongAnswer.wav'
+import {
+  initCorrectSounds,
+  playRandomCorrectSound
+} from "../assets/music/correctSoundEffect/correctSoundEffects.js";
+
+
+import wrongSound from '../assets/music/incorrectSoundEffect/oopsTryAgain.wav'
 
 import QuizUI from "./QuizUI";
 
@@ -20,6 +25,9 @@ const getLevelTitle = (correctCount) => {
   if (correctCount >= 201) return "MAHARLIKA";
   return "MANDIRIGMA";
 };
+
+
+
 
 export default function Game() {
   const navigate = useNavigate();
@@ -129,19 +137,15 @@ export default function Game() {
   });
 
   // AUDIO REFS: prevents the sound from restarting unexpectedly on each render
-  const correctAudioRef = useRef(null);
+  const correctAudioRefs = useRef([]);    
   const wrongAudioRef = useRef(null);
 
   useEffect(() => {
-    //correct answer sound
-    correctAudioRef.current = new Audio(correctSound);
-    correctAudioRef.current.volume = 0.4;
-    correctAudioRef.current.playbackRate = 2.0;
+    initCorrectSounds();
 
-    //wrong answer sound
     wrongAudioRef.current = new Audio(wrongSound);
     wrongAudioRef.current.volume = 0.4;
-    wrongAudioRef.current.playbackRate = 3.0;
+    wrongAudioRef.current.playbackRate = 1.5;
   }, []);
 
 
@@ -158,10 +162,11 @@ export default function Game() {
 
        // Only play sound if sound is on 
        // Correct answer sound
-      if (isSoundOn && correctAudioRef.current) {
-        correctAudioRef.current.currentTime = 0;// restart sound if already playing
-        correctAudioRef.current.play().catch(() => {});
-      }
+      playRandomCorrectSound();  
+
+
+
+
 
       setTimeout(() => {
         setCoins(c => c + 3);
