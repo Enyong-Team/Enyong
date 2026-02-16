@@ -60,24 +60,33 @@ const correctSounds = [
 // AUDIO SYSTEM
 // ============================
 
+// AUDIO SYSTEM
 let audioPool = [];
 let lastPlayedIndex = null;
 
-// Preload sounds (call once in Game.jsx)
 export const initCorrectSounds = () => {
   audioPool = correctSounds.map((sound) => {
     const audio = new Audio(sound);
+    audio.preload = "auto";
     audio.volume = 1.0;
     audio.playbackRate = 1.0;
     return audio;
   });
+
+  // Unlock sounds on first user click
+  const unlockSounds = () => {
+    audioPool.forEach(audio => audio.play().catch(() => {}));
+    audioPool.forEach(audio => audio.pause());
+    window.removeEventListener("click", unlockSounds);
+  };
+  window.addEventListener("click", unlockSounds);
 };
 
-// Play random sound safely
-export const playRandomCorrectSound = () => {
+// Play a random sound if sound is ON
+export const playRandomCorrectSound = (soundOn = true) => {
+  if (!soundOn) return; // <-- Respect the toggle
   if (audioPool.length === 0) return;
 
-  // Get sounds that are not currently playing
   const availableSounds = audioPool
     .map((audio, index) => ({ audio, index }))
     .filter(({ audio }) => audio.paused);
@@ -85,7 +94,6 @@ export const playRandomCorrectSound = () => {
   if (availableSounds.length === 0) return;
 
   let randomSelection;
-
   do {
     randomSelection =
       availableSounds[Math.floor(Math.random() * availableSounds.length)];
@@ -96,5 +104,7 @@ export const playRandomCorrectSound = () => {
 
   lastPlayedIndex = randomSelection.index;
 
+  randomSelection.audio.currentTime = 0;
   randomSelection.audio.play().catch(() => {});
 };
+

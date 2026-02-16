@@ -162,10 +162,9 @@ export default function Game() {
 
        // Only play sound if sound is on 
        // Correct answer sound
-      playRandomCorrectSound();  
-
-
-
+    if (isSoundOn) {
+      playRandomCorrectSound();
+    }
 
 
       setTimeout(() => {
