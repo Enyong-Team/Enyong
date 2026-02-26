@@ -7,7 +7,10 @@ import {
 } from "../assets/music/correctSoundEffect/correctSoundEffects.js";
 
 
-import wrongSound from '../assets/music/incorrectSoundEffect/oopsTryAgain.wav'
+import {
+  initIncorrectSounds,
+  playRandomIncorrectSound
+} from '../assets/music/incorrectSoundEffect/incorrectSoundEffects.js'
 
 import QuizUI from "./QuizUI";
 
@@ -131,10 +134,7 @@ export default function Game() {
 
 
   // SOUND TOGGLE FROM SETTINGS
-  const [soundOn, setSoundOn] = useState(() => {
-    const saved = localStorage.getItem("soundOn");
-    return saved === null ? true : JSON.parse(saved);
-  });
+  const [soundOn, setSoundOn] = useState(true);
 
   // AUDIO REFS: prevents the sound from restarting unexpectedly on each render
   const correctAudioRefs = useRef([]);    
@@ -143,9 +143,7 @@ export default function Game() {
   useEffect(() => {
     initCorrectSounds();
 
-    wrongAudioRef.current = new Audio(wrongSound);
-    wrongAudioRef.current.volume = 0.4;
-    wrongAudioRef.current.playbackRate = 1.5;
+    initIncorrectSounds();
   }, []);
 
 
@@ -177,9 +175,8 @@ export default function Game() {
 
     } else {
        // Wrong answer sound effects
-      if (isSoundOn && wrongAudioRef.current) {
-        wrongAudioRef.current.currentTime = 0;
-        wrongAudioRef.current.play().catch(() => {});
+      if (isSoundOn ) {
+       playRandomIncorrectSound();
       }
     }
   };
