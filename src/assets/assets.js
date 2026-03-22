@@ -20,6 +20,7 @@ import PlayBtnImg from './ButtonPIC/PlayBtn.png';
 import MaharlikaPic from './ButtonPIC/Maharlika.png';
 import PlayButton from './ButtonPIC/mainPlayBTN.png';
 
+
 // --- SETTINGS BUTTONS ---
 import soundBtn from './ButtonPIC/soundBtn.png';
 import musicBtn from './ButtonPIC/musicBtn.png';
@@ -98,6 +99,11 @@ import startBTN from "./photo/StartLNQ.png";
 import SpinningBG from '../Game/nextquestion/spinningBG/SpinningBG.png';
 
 /* =========================================
+   TOURNAMENT IMAGES (src/assets/tournamentPics)
+   ========================================= */
+import ClearBanner from './tournamentPics/clearBanner.png';
+
+/* =========================================
    EXPORT EVERYTHING
    ========================================= */
 export {
@@ -147,5 +153,8 @@ export {
   back, banner, left1, right1, left2, right2,startBTN,
 
   // Game
-  SpinningBG
+  SpinningBG,
+
+   // Tournament
+  ClearBanner
 };
