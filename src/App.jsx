@@ -51,8 +51,6 @@ import PeAndHealthCTG  from './Game/Categories/PhysicalEducationAndHealth/PeAndH
 import GmrcCTG from './Game/Categories/GMRC/GMRC.jsx'
 import TleCTG from './Game/Categories/TLE/TLE.jsx';
 
-/* Tournament  */
-import TournamentLobby from './Game/tournamentMode/tournamentLobby.jsx';
 
 /* Quiz pages
 import ScinceQuiz from './Game/Categories/Science/ScinceQuiz.jsx';
@@ -126,8 +124,7 @@ function App() {
         {/*Quiz Route */}
         <Route path="/game" element={<Game />} />
 
-        {/*Tournament Route */}
-        <Route path="/tournamentLobby" element={<TournamentLobby />} />
+
 
         {/* QUIZ PAGES
         <Route path="/science_quiz" element={<Game />} />
@@ -187,8 +184,7 @@ function App() {
           <Route path="/math_quiz" element={<MathQuiz/>} />
           <Route path="/tle_quiz" element={<TLEQuiz/>} />
            */}
-          {/*Tournament Route */}
-           <Route path="/tournamentLobby" element={<TournamentLobby />} />
+
 
         </Routes>
       )}
