@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 // Background Imports
 import ScienceBG from "./Categories/Science/Sciencebackground/ScienceBG.png";
 import EnglishBG from "./Categories/English/EnglishBackground/EnglishBG.png";
@@ -48,6 +49,9 @@ export default function QuizUI({
     "PE And Health": PEaHBG
   };
 
+   const [showExitPopup, setShowExitPopup] = useState(false);
+
+
   const currentBg = backgrounds[subject] || ScienceBG;
 
   // Check if answer is wrong
@@ -66,11 +70,46 @@ export default function QuizUI({
       className="min-h-screen bg-cover bg-center bg-no-repeat p-6 item-center overflow-hidden flex flex-col"
       style={{ backgroundImage: `url(${currentBg})` }}
     >
+
+      {/* EXIT CONFIRMATION POPUP */}
+      {showExitPopup && (
+        <div className="absolute font-LG inset-0 tracking-widest bg-black/60 flex items-center justify-center z-50 px-4">
+          <div className="w-full max-w-[310px] rounded-[18px] overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.45)]">
+            
+            {/* TOP MESSAGE */}
+            <div className="bg-[#0B4E99] px-6 py-5 flex items-center justify-center border-b border-white/30">
+              <h2 className="text-white text-center text-2xl font-semibold leading-tight">
+                Are you sure you <br /> want to exit?
+              </h2>
+            </div>
+
+            {/* BOTTOM BUTTONS */}
+            <div className="flex w-full">
+              {/* EXIT */}
+              <button
+                onClick={onBack}
+                className="w-1/2 bg-[#B73737] text-white text-2xl py-3 active:scale-[0.98] transition border-r border-white/30"
+              >
+                Exit
+              </button>
+
+              {/* CANCEL */}
+              <button
+                onClick={() => setShowExitPopup(false)}
+                className="w-1/2 bg-[#0B4E99] text-white text-2xl py-3 active:scale-[0.98] transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
        <div className="flex justify-between pb-2">
-        <button onClick={onBack}>
+        <button onClick={() => setShowExitPopup(true)}>
           <img 
             src={ReturnPic} 
-            className="h-12 active:scale-
+            className="h-12 active:scale-95
                         max-[380px]:w-9 max-[380px]:h-9" 
             alt="back" />
         </button>
