@@ -188,7 +188,7 @@ function App() {
           <Route path="/tle_quiz" element={<TLEQuiz/>} />
            */}
           {/*Tournament Route */}
-           <Route path="/tournamentLobby" element={<TournamenLobby />} />
+           <Route path="/tournamentLobby" element={<TournamentLobby />} />
 
         </Routes>
       )}
