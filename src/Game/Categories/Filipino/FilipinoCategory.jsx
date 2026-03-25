@@ -9,7 +9,7 @@ function FilipinoCategory() {
     const timer = setTimeout(() => {
       // NAVIGATE TO GAME WITH SPECIFIC SUBJECT
       navigate("/game", { state: { subject: "Filipino" } });
-    }, 300);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

@@ -8,7 +8,7 @@ function ScienceCategory() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/game", { state: { subject: "Science" } });
-    }, 300);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
