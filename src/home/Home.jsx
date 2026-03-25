@@ -21,7 +21,7 @@ import {
   MarangalB,
   AlamatB,
   PlayButton,
-  
+  BaliwagLogoPNG,
 } from "../assets/assets";
 
 function Home() {
@@ -156,7 +156,7 @@ function Home() {
                              border-b-2 pt-0.5 border-[#999999] 
                              max-[380px]:text-sm rounded-tr-full rounded-br-full text-white mt-0.5 mb-1 font-LG"
                 >
-                  {/* CHANGED THIS from {showLevel} to {levelNumber} */}
+                  {/* */}
                   {levelNumber}
                 </h1>
               </div>
@@ -174,7 +174,8 @@ function Home() {
                   className="max-[380px]:text-xs text-sm px-2 p-1 mt-1 
                              max-[380px]:mt-0.5 text-center 
                              border-t-2 border-r-2 border-b-2 border-[#999999]
-                             rounded-tr-full rounded-br-full text-white mb-1 font-LG"
+                             rounded-tr-full rounded-br-full drop-shadow-white/30 drop-shadow text-[#F1C234]
+                            mb-1 font-LG"
                 >
                   {levelTitle}
                 </h1>
@@ -184,9 +185,9 @@ function Home() {
 
           {/* Earth button */}
           <img
-            src={earthPic}
+            src={depedPic}
             alt="earth"
-            className="w-[94px] h-[94px] max-[380px]:w-15 max-[380px]:h-15 "
+            className="w-24 h-[90px] max-[380px]:w-17 max-[380px]:h-17 "
           />
 
           {/* Coin Display */}
@@ -234,9 +235,9 @@ function Home() {
         </h1>
 
         <img
-          src={depedPic}
+          src={BaliwagLogoPNG}
           alt="deped"
-          className="w-[295px] h-[236px] max-[380px]:w-50 max-[380px]:h-50"
+          className="w-[315px] h-[201px] max-[380px]:w-50 max-[380px]:h-35"
         />
 
         <button onClick={() => navigate("/randomize")}>

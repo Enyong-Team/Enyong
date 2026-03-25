@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import SignInBTN from './authButtons/SignInBTN.png'
-import baliwagLogo from './authButtons/baliwagLogo.jpg'
+import { BaliwagLogoPNG } from '../assets/assets';
 
 
 function signIn() {
@@ -16,9 +16,9 @@ function signIn() {
                             items-center flex justify-center
                             shadow-2xl rounded-full p-1 '>
                 <img
-                 src={baliwagLogo} 
+                 src={BaliwagLogoPNG} 
                  alt="Logo"
-                 className='w-[180px] rounded-full p-1 h-[180px]' />
+                 className='w-[220px] rounded-full p-1 h-[180px]' />
             </div>
         </div>
 

@@ -20,6 +20,8 @@ import PlayBtnImg from './ButtonPIC/PlayBtn.png';
 import MaharlikaPic from './ButtonPIC/Maharlika.png';
 import PlayButton from './ButtonPIC/mainPlayBTN.png';
 
+import BaliwagLogoPNG from './photo/baliwagLogoPNG.png';
+
 
 // --- SETTINGS BUTTONS ---
 import soundBtn from './ButtonPIC/soundBtn.png';
@@ -103,6 +105,7 @@ import SpinningBG from '../Game/nextquestion/spinningBG/SpinningBG.png';
    ========================================= */
 import ClearBanner from './tournamentPics/clearBanner.png';
 
+
 /* =========================================
    EXPORT EVERYTHING
    ========================================= */
@@ -111,7 +114,7 @@ export {
   infoPic, accPic, settingPic, 
   closeBtn, closePic, goBtn, 
   HomeBtn, NextQuestionBtn, NextQuestionOrange, HintBtn,
-  editPic, MaharlikaPic, PlayButton,
+  editPic, MaharlikaPic, PlayButton,BaliwagLogoPNG,
   
   // Settings Specific (Exported with your names)
   soundBtn as soundPic, 

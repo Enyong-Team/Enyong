@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import NextBTN from './authButtons/NextBTN.png'
 import BackBTN from './authButtons/BackBTN.png'
-import baliwagLogo from './authButtons/baliwagLogo.jpg'
+import { BaliwagLogoPNG } from '../assets/assets';
 
 function otpSignIn() {
   return (
@@ -24,15 +24,10 @@ function otpSignIn() {
         {/*Game Logo Placeholder*/}
         <div 
             className=' flex justify-center pt-5'>
-           <div 
-                           className='
-                                       items-center flex justify-center
-                                       shadow-2xl rounded-full p-1 '>
-                           <img
-                            src={baliwagLogo} 
-                            alt="Logo"
-                            className='w-[180px] rounded-full p-1 h-[180px]' />
-                       </div>
+                <img
+                 src={BaliwagLogoPNG} 
+                 alt="Logo"
+                 className='w-[250px] rounded-full p-1 h-[180px]' />
         </div>
 
         {/*OTP Message*/}

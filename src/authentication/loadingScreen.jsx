@@ -1,7 +1,9 @@
 import React from 'react'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import baliwagLogo from './authButtons/baliwagLogo.jpg'
+import {
+  BaliwagLogoPNG,
+} from "../assets/assets";
 
 function loadingScreen() {
 
@@ -35,9 +37,9 @@ const navigate = useNavigate();
                             items-center flex justify-center
                             shadow-2xl rounded-full p-1 '>
                 <img
-                 src={baliwagLogo} 
+                 src={BaliwagLogoPNG} 
                  alt="Logo"
-                 className='w-[180px] rounded-full p-1 h-[180px]' />
+                 className='w-[250px] rounded-full p-1 h-[180px]' />
             </div>
         </div>
 
