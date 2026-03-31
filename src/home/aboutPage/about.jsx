@@ -1,13 +1,20 @@
 import React from 'react';
 import { closePic } from "../../assets/assets";
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function About() {
   const navigate = useNavigate();
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => navigate(-1), 100);
+  };
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-50">
-      <div className="relative bg-[#084E99] rounded-xl w-[368px] h-[494px] flex flex-col overflow-hidden">
+    <div className={`absolute inset-0 flex items-center justify-center bg-black/50 z-50 ${isClosing ? 'animate-fade-bg-out' : 'animate-fade-bg'}`}>
+      <div className={`relative bg-[#084E99] rounded-xl w-[368px] h-[494px] flex flex-col overflow-hidden ${isClosing ? 'animate-modal-pop-out' : 'animate-modal-pop'}`}>
 
         {/* Header */}
         <div className="relative bg-[#012F65] rounded-t-xl p-4 flex items-center justify-center w-full shrink-0">
@@ -16,7 +23,7 @@ function About() {
             src={closePic}
             alt="Close"
             className="absolute right-4 cursor-pointer w-6 h-6"
-            onClick={() => navigate(-1)}
+            onClick={handleClose}
           />
         </div>
 

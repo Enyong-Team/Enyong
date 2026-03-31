@@ -15,6 +15,13 @@ function DailyGoals() {
   // Local state for the ticking animation
   const [displayedCoins, setDisplayedCoins] = useState(coins);
   const [animatingCoins, setAnimatingCoins] = useState([]);
+  
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => navigate(-1), 100);
+  };
 
   // Refs for animation start and end points
   const targetRef = useRef(null);
@@ -90,6 +97,10 @@ function DailyGoals() {
     generated.forEach((_, i) => {
       setTimeout(() => {
         setDisplayedCoins(prev => prev + 1);
+        // Trigger a 50ms haptic buzz on mobile devices
+        if (typeof navigator !== 'undefined' && navigator.vibrate) {
+          navigator.vibrate(50);
+        }
       }, 1200 + (i * 150));
     });
 
@@ -126,9 +137,11 @@ function DailyGoals() {
   };
 
   return (
-    <div className='absolute inset-0 flex items-center justify-center bg-black/50 z-50 overflow-hidden'>
+    <div className={`absolute inset-0 flex items-center justify-center bg-black/50 z-50 overflow-hidden ${isClosing ? 'animate-fade-bg-out' : 'animate-fade-bg'}`}>
       
       {/* --- INJECTED DYNAMIC CSS FOR THE FLIGHT PATH TO WORLD TRADE CENTER --- */}
+      {/* --- To change the intensity of the coin flash, change brightness(1.3) into something else. 1.3 means 30% brighter --- */}
+
       <style>{`
         @keyframes flyCoinDance {
           0% { transform: translate(var(--startX), var(--startY)) scale(0) rotate(0deg); opacity: 0; }
@@ -146,7 +159,16 @@ function DailyGoals() {
           animation: flyCoinDance 1.2s ease-in-out forwards;
           z-index: 9999;
           pointer-events: none;
-          opacity: 0; /* Ensures coin is invisible until the animation explicitly starts */
+          opacity: 0; 
+        }
+
+        @keyframes targetPop {
+          0% { transform: scale(1); filter: brightness(1); }
+          50% { transform: scale(1.35); filter: brightness(1.3); }
+          100% { transform: scale(1); filter: brightness(1); }
+        }
+        .animate-target-pop {
+          animation: targetPop 0.15s ease-out;
         }
       `}</style>
 
@@ -169,18 +191,24 @@ function DailyGoals() {
         />
       ))}
 
-      <div className='bg-[#084E99] m-6 w-full h-auto p-5 gap-5 rounded-2xl border border-white relative z-0'>
+      <div className={`bg-[#084E99] m-6 w-full h-auto p-5 gap-5 rounded-2xl border border-white relative z-0 ${isClosing ? 'animate-modal-pop-out' : 'animate-modal-pop'}`}>
 
         {/* Coins & Close */}
         <div className='flex flex-row justify-between'>
           <div className="flex flex-row px-2 border rounded-full border-white items-center gap-2 shadow-[inset_0_0_20px_rgba(0,0,0,0.4)] mb-5">
             {/* TARGET REF APPLIED HERE */}
-            <img ref={targetRef} src={coinPic} alt="coin" className="w-12 h-12 relative z-10"/>
+            <img 
+              key={`pop-${displayedCoins}`}
+              ref={targetRef} 
+              src={coinPic} 
+              alt="coin" 
+              className="w-12 h-12 relative z-10 animate-target-pop"
+            />
             <h1 className="font-LG pr-2 text-white text-xl min-w-[24px] text-center">{displayedCoins}</h1>
           </div>
 
           <div>
-            <img src={closeBtn} alt="close" onClick={() => navigate(-1)} className='cursor-pointer active:scale-95'/>
+            <img src={closeBtn} alt="close" onClick={handleClose} className='cursor-pointer active:scale-95'/>
           </div>
         </div>
 

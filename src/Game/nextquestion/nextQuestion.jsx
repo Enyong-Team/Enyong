@@ -55,6 +55,10 @@ function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
       generated.forEach((_, i) => {
         const t = setTimeout(() => {
           setDisplayedCoins((prev) => prev + 1);
+          // Trigger a 50ms haptic buzz on mobile devices (palitan nyo kung gusto nyo)
+          if (typeof navigator !== 'undefined' && navigator.vibrate) {
+            navigator.vibrate(50);
+          }
         }, 1200 + (i * 150)); 
         timeouts.push(t);
       });
@@ -106,7 +110,16 @@ function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
           animation: flyCoinDance 1.2s ease-in-out forwards;
           z-index: 9999;
           pointer-events: none;
-          opacity: 0; /* Ensures coin is invisible until the animation explicitly starts */
+          opacity: 0;
+        }
+        
+        @keyframes targetPop {
+          0% { transform: scale(1); filter: brightness(1); }
+          50% { transform: scale(1.35); filter: brightness(1.3); }
+          100% { transform: scale(1); filter: brightness(1); }
+        }
+        .animate-target-pop {
+          animation: targetPop 0.15s ease-out;
         }
       `}</style>
 
@@ -144,7 +157,13 @@ function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
                           w-[110px] bg-[#084E99]
                           shadow-[inset_0_0_10px_rgba(0,0,0,0.6)]
                           h-10 border-2 rounded-full border-white gap-2">
-            <img ref={targetRef} src={coinPic} alt="coin" className="w-10 h-10 relative z-10" />
+            <img 
+              key={`pop-${displayedCoins}`}
+              ref={targetRef} 
+              src={coinPic} 
+              alt="coin" 
+              className="w-10 h-10 relative z-10 animate-target-pop" 
+            />
             <h1 className="font-LG text-white text-xl w-6 text-center">{displayedCoins}</h1>
           </div>
         </div>

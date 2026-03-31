@@ -49,10 +49,38 @@ export default function QuizUI({
     "PE And Health": PEaHBG
   };
 
-   const [showExitPopup, setShowExitPopup] = useState(false);
-
-
   const currentBg = backgrounds[subject] || ScienceBG;
+
+   const [showExitPopup, setShowExitPopup] = useState(false);
+  const [isClosingExit, setIsClosingExit] = useState(false);
+  
+  // Split into two distinct error states
+  const [coinError, setCoinError] = useState(false);
+  const [hintCountError, setHintCountError] = useState(false);
+
+  const handleCloseExitPopup = () => {
+    setIsClosingExit(true);
+    setTimeout(() => {
+      setIsClosingExit(false);
+      setShowExitPopup(false);
+    }, 100);
+  };
+
+  const handleHintClick = () => {
+    if (coins < 10) {
+      // Scenario A: Wala na pepe. Shake the total coins.
+      setCoinError(true);
+      if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate([50, 50, 50]);
+      setTimeout(() => setCoinError(false), 300);
+    } else if (hints <= 0) {
+      // Scenario B: Masyado nang bobo. Shake the hint stock.
+      setHintCountError(true);
+      if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate([50, 50, 50]);
+      setTimeout(() => setHintCountError(false), 300);
+    } else {
+      onHint(); 
+    }
+  };
 
   // Check if answer is wrong
   const isWrong = selected !== null && Number(selected) !== Number(correctIndex);
@@ -73,8 +101,8 @@ export default function QuizUI({
 
       {/* EXIT CONFIRMATION POPUP */}
       {showExitPopup && (
-        <div className="absolute font-LG inset-0 tracking-widest bg-black/60 flex items-center justify-center z-50 px-4">
-          <div className="w-full max-w-[310px] rounded-[18px] overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.45)]">
+        <div className={`absolute font-LG inset-0 tracking-widest bg-black/60 flex items-center justify-center z-50 px-4 ${isClosingExit ? 'animate-fade-bg-out' : 'animate-fade-bg'}`}>
+          <div className={`w-full max-w-[310px] rounded-[18px] overflow-hidden shadow-[0_0_25px_rgba(0,0,0,0.45)] ${isClosingExit ? 'animate-modal-pop-out' : 'animate-modal-pop'}`}>
             
             {/* TOP MESSAGE */}
             <div className="bg-[#0B4E99] px-6 py-5 flex items-center justify-center border-b border-white/30">
@@ -95,7 +123,7 @@ export default function QuizUI({
 
               {/* CANCEL */}
               <button
-                onClick={() => setShowExitPopup(false)}
+                onClick={handleCloseExitPopup}
                 className="w-1/2 bg-[#0B4E99] text-white text-2xl py-3 active:scale-[0.98] transition"
               >
                 Cancel
@@ -147,7 +175,7 @@ export default function QuizUI({
                         max-[380px]:w-7 max-[380px]:h-7" 
               alt="coin" />
               
-            <span className="font-LG text-white max-[380px]:text-lg text-xl">
+            <span className={`font-LG max-[380px]:text-lg text-xl inline-block transition-colors duration-200 ${coinError ? 'text-red-500 animate-wobble' : 'text-white'}`}>
               {coins}
             </span>
 
@@ -161,15 +189,16 @@ export default function QuizUI({
             />
           </div>
 
-          <div className="flex justify-end cursor-pointer" 
-              onClick={onHint}>
-            <div className="flex p-0 flex-row justify-center active:scale-95 bg-[#299C2F] 
-                          shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] border-2 rounded-full 
-                          border-white px-1 items-center mb-5 w-auto">
+          <div className="flex justify-end cursor-pointer" onClick={handleHintClick}>
+            {/* Wrapper restored to standard green */}
+            <div className="flex p-0 flex-row justify-center active:scale-95 bg-[#299C2F] shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] 
+            border-2 rounded-full border-white px-1 items-center mb-5 w-auto">
               <img src={HintBtn} className="w-9 h-9 max-[380px]:h-7" alt="hint" />
               <div className="bg-black/50 rounded-4xl px-2 items-center py-1 flex justify-center gap-1">
                 <img src={coinPic} className="w-6 h-6" alt="coin" />
-                <span className="font-LG text-center text-white text-sm">
+                {/* Wobble and Red Text applied to the number */}
+                <span className={`font-LG text-center text-sm inline-block transition-colors duration-200 ${hintCountError ? 
+                  'text-red-500 animate-wobble' : 'text-white'}`}>
                   {hints}
                 </span>
               </div>

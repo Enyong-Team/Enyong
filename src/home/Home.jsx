@@ -240,7 +240,7 @@ function Home() {
           className="w-[315px] h-[201px] max-[380px]:w-50 max-[380px]:h-35"
         />
 
-        <button onClick={() => navigate("/randomize")}>
+        <button onClick={() => navigate("/randomize")} className="animate-pulse-slow">
           <img
             src={PlayButton}
             alt="PLAY"
@@ -303,7 +303,8 @@ function Home() {
         </div>
 
         {/* --- Dropdowns --- */}
-        <div className={`w-full flex flex-col items-center overflow-hidden transition-all duration-300 ${showPartnerBtn ? "max-h-40 " : "max-h-0"}`}>
+        <div className={`w-full flex flex-col items-center overflow-hidden transition-all duration-500 ease-out ${showPartnerBtn ?
+"max-h-40 opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"}`}>
           <div className="w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center">
             <h1 className="font-LG text-white text-center">Scan a QR code to challenge a friend in a quiz battle.</h1>
             <Link to={"/PlayWithPartner"}>
@@ -312,7 +313,8 @@ function Home() {
           </div>
         </div>
 
-        <div className={`w-full flex flex-col items-center overflow-hidden transition-all duration-300 ${showEarnCoinBtn ? "max-h-40 " : "max-h-0"}`}>
+        <div className={`w-full flex flex-col items-center overflow-hidden transition-all duration-500 ease-out ${showEarnCoinBtn ?
+"max-h-40 opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"}`}>
           <div className="w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center">
             <h1 className="font-LG text-white text-center">Answer fun questions to collect more coins and unlock rewards.</h1>
             <Link to={"/earnCoins"}>
@@ -321,7 +323,8 @@ function Home() {
           </div>
         </div>
 
-        <div className={`w-full flex flex-col items-center overflow-hidden transition-all duration-300 ${showLevelQuarterBtn ? "max-h-40 " : "max-h-0"}`}>
+        <div className={`w-full flex flex-col items-center overflow-hidden transition-all duration-500 ease-out ${showLevelQuarterBtn ?
+"max-h-40 opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"}`}>
           <div className="w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center">
             <h1 className="font-LG text-white text-center">Replay lesson-based games by level and quarter to review and improve.</h1>
             <Link to={"/levelandquarter"}>

@@ -22,7 +22,7 @@ test lang ng push request
 
 git add .
 
-git commit -m "Add changes here"
+git commit -m "Flying coins and shit"
 
 git push origin main
 

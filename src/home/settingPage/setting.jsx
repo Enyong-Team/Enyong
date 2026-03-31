@@ -7,10 +7,13 @@ import { playBgMusic} from "../../assets/music/music.js";
 
 
 function Setting() {
-
-
-
   const navigate = useNavigate();
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => navigate(-1), 100);
+  };
 
   // --- Toggle states with localStorage persistence ---
   const [soundOn, setSoundOn] = useState(() => {
@@ -59,8 +62,8 @@ function Setting() {
 
   // --- Render ---
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-black/50 z-50">
-      <div className="bg-[#084E99] rounded-xl w-[368px] h-[216px] flex flex-col items-center">
+    <div className={`fixed inset-0 flex flex-col items-center justify-center bg-black/50 z-50 ${isClosing ? 'animate-fade-bg-out' : 'animate-fade-bg'}`}>
+      <div className={`bg-[#084E99] rounded-xl w-[368px] h-[216px] flex flex-col items-center ${isClosing ? 'animate-modal-pop-out' : 'animate-modal-pop'}`}>
         
         {/* Header */}
         <div className="relative bg-[#012F65] rounded-xl p-6 flex flex-row items-center justify-center w-full">
@@ -69,7 +72,7 @@ function Setting() {
             src={closePic}
             alt="CloseButton"
             className="absolute right-4 cursor-pointer active:scale-95"
-            onClick={() => navigate(-1)}
+            onClick={handleClose}
           />
         </div>
 
