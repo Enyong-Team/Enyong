@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Import useCoins to access global state
 import { useCoins } from "../../context/coincontext";
-import { ReturnBTN, EarnCoinLogo, PlayBTN, Trophy, EmptyTrophy } from "../../assets/assets";
+import { ReturnBTN, EarnCoinLogo, PlayBTN, Trophy, EmptyTrophy, coinPic } from "../../assets/assets";
+
 
 /* Get total days in the current month */
 const getDaysInMonth = (year, month) =>
@@ -12,8 +13,8 @@ const getDaysInMonth = (year, month) =>
 function EarnCoin() {
   const navigate = useNavigate();
   
-  // --- USE CONTEXT INSTEAD OF LOCAL STORAGE ---
-  const { playedDates, markTodayAsPlayed } = useCoins();
+// addCoins to reward the player, coins to display their total
+  const { playedDates, markTodayAsPlayed, addCoins, coins } = useCoins();
 
   /* Get today's date */
   const today = new Date();
@@ -36,6 +37,7 @@ function EarnCoin() {
   /* Navigate between months */
   const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
   const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
+  
 
   /* --- LOGIC: Handle Game Play --- */
   const handlePlayGame = () => {
@@ -54,6 +56,31 @@ function EarnCoin() {
 
   // Calculate percentage (0 to 100)
   const progressPercent = Math.min((gamesPlayedInCurrentMonth / daysInMonth) * 100, 100);
+
+  // --- CLAIM REWARD LOGIC ---
+  const isMonthComplete = gamesPlayedInCurrentMonth >= daysInMonth;
+  const claimKey = `claimedReward_${month}_${year}`; // Unique key per month/year
+  
+  // Check if they already claimed this month's reward
+  const [isClaimed, setIsClaimed] = useState(() => localStorage.getItem(claimKey) === 'true');
+
+  // Update claim status if they navigate to a different month
+  React.useEffect(() => {
+    setIsClaimed(localStorage.getItem(claimKey) === 'true');
+  }, [month, year, claimKey]);
+
+  const handleClaimReward = () => {
+    if (isMonthComplete && !isClaimed) {
+      addCoins(50); // Give the 50 petot!
+      setIsClaimed(true);
+      localStorage.setItem(claimKey, 'true'); // Save so they can't claim twice
+      
+      // double haptic buzz
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        navigator.vibrate([50, 100, 50]); 
+      }
+    }
+  };
 
   return (
     /* Page Wrapper */
@@ -76,6 +103,23 @@ function EarnCoin() {
 
         {/* Dynamic Trophy Section */}
         <div className="flex justify-center items-center relative h-[150px]">
+            
+            {/* +50 Coin Badge */}
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 -ml-2.5 z-10">
+                <div className="relative">
+                    <img 
+                        src={coinPic} 
+                        alt="coin" 
+                        className="w-10 h-10 absolute -top-4 left-3 z-0 object-contain scale-150" 
+                    />
+                    
+                    <span className="text-white font-LG  text-2xl leading-none relative z-10 drop-shadow-sm"
+                    style={{ WebkitTextStroke: '1px #084A97' }}>
+                        +50
+                    </span>
+                </div>
+            </div>
+
             {/* 1. Empty Trophy (Background) */}
             <img 
                 src={EmptyTrophy} 
@@ -94,13 +138,29 @@ function EarnCoin() {
             />
         </div>
         
-        {/* Progress Text */}
-        <div className="text-center text-[#ffffff] font-bold font-FD">
-            {gamesPlayedInCurrentMonth} / {daysInMonth} Days Played
+        {/* Progress Text & Claim Button */}
+        <div className="flex flex-col items-center gap-3">
+            <div className="text-center text-[#ffffff] font-bold font-FD">
+                {gamesPlayedInCurrentMonth} / {daysInMonth} Days Played
+            </div>
+
+            {/* Claim Button appears only when month is full */}
+            {isMonthComplete && (
+                <button 
+                    onClick={handleClaimReward}
+                    disabled={isClaimed}
+                    className={`font-LG text-xl px-6 py-2 rounded-xl transition-all duration-300 ${
+                        isClaimed 
+                        ? 'bg-gray-500 text-gray-300 cursor-not-allowed border-2 border-gray-400' 
+                        : 'bg-[#2FAA17] text-white active:scale-95 shadow-[inset_0_-5px_10px_rgba(0,0,0,0.3)] cursor-pointer hover:bg-green-500 border-2 border-white'
+                    }`}
+                >
+                    {isClaimed ? "REWARD CLAIMED" : "CLAIM 50 COINS!"}
+                </button>
+            )}
         </div>
 
       </div>
-
 
       {/* ===================== */}
       {/* CALENDAR SECTION */}

@@ -21,9 +21,7 @@ test lang ng push request
 
 
 git add .
-
-git commit -m "Flying coins and shit"
-
+git commit -m "Added Animations and Not Enough Coins/Hints Visual"
 git push origin main
 
 
