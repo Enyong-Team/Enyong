@@ -174,7 +174,7 @@ function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
 
           <div ref={sourceRef} className="relative flex justify-center items-center">
             <img src={coinPic} alt="coin" className="w-[55px] h-[55px]" />
-            <h1 className="absolute text-xl font-LG text-white mt-15  animate-pulse ">
+            <h1 className="absolute text-xl font-LG text-white mt-15  animate-pulse " style={{ WebkitTextStroke: '1px #084A97' }}>
               +{rewardCoin}
             </h1>
           </div>

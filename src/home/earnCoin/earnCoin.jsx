@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Import useCoins to access global state
 import { useCoins } from "../../context/coincontext";
-import { ReturnBTN, EarnCoinLogo, PlayBTN, Trophy, EmptyTrophy, coinPic } from "../../assets/assets";
+import { ReturnBTN, EarnCoinLogo, PlayBTN, Trophy, EmptyTrophy, coinPic, plusPic } from "../../assets/assets";
+
 
 
 /* Get total days in the current month */
@@ -12,6 +13,8 @@ const getDaysInMonth = (year, month) =>
 
 function EarnCoin() {
   const navigate = useNavigate();
+    // WebWide Coin
+
   
 // addCoins to reward the player, coins to display their total
   const { playedDates, markTodayAsPlayed, addCoins, coins } = useCoins();
@@ -89,18 +92,48 @@ function EarnCoin() {
       {/* ===================== */}
       {/* TOP SECTION */}
       {/* ===================== */}
-      <div className="p-3 space-y-5">
+      <div className="p-5 space-y-5 ">
 
+        <div className="flex justify-between">
         {/* Return Button */}
         <Link to="/">
           <img src={ReturnBTN} alt="Return Button" />
         </Link>
 
+          <div
+            className="flex flex-row max-[323px]:flex-col h-10 max-[323px]:h-auto
+                       border rounded-full border-white items-center
+                       space-x-2 max-[380px]:space-x-2 max-[340px]:space-y-1
+                       shadow-inner shadow-black/30 mb-5  max-[395px]:pr-2 "
+          >
+            <img
+              src={coinPic}
+              alt="coin"
+              className="md:w-10 md:h-10 w-8 h-8 max-[380px]:w-7 max-[380px]:h-7 ml-1"
+            />
+
+            <h1 className="font-LG text-white max-[380px]:text-lg text-xl">
+              {coins}
+            </h1>
+
+            <img
+              src={plusPic}
+              alt="plus"
+              className=" w-8 h-8 max-[380px]:w-7 max-[380px]:h-7 
+                         max-[391px]:mr-1  mt-1.5 mr-2 cursor-pointer"
+              onClick={() =>
+                navigate("/dailyGoals", {
+                  state: { backgroundLocation: location },
+                })
+              }
+            />
+          </div>
+        </div>
         {/* Earn Coin Logo */}
-        <div className="flex justify-center items-center pt-5">
+        <div className="flex justify-center items-center ">
           <img src={EarnCoinLogo} alt="Earn Coin Logo" />
         </div>
-
+  
         {/* Dynamic Trophy Section */}
         <div className="flex justify-center items-center relative h-[150px]">
             
