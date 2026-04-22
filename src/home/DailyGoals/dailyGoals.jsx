@@ -217,7 +217,7 @@ function DailyGoals() {
 
           <div className='relative'>
             <img src={coinPic} alt="coin" className='w-[68px] h-[68px]' />
-            <h1 className='text-lg absolute inset-7 left-0.5 text-gray-200'>+{earncoin}</h1>
+            <h1 className='text-lg absolute inset-7 left-0.5 text-gray-200 animate-pulse'style={{ WebkitTextStroke: '1px #084A97' }}>+{earncoin}</h1>
           </div>
         </div>
 

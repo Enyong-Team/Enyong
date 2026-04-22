@@ -2,6 +2,23 @@ import React, { useEffect, useState, useRef } from 'react';
 import { HomeBtn, coinPic, NextQuestionBtn, SpinningBG } from "../../assets/assets";
 
 function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
+
+  const messages = [
+  "CONGRATULATIONS!",
+  "YOU DID IT!",
+  "GREAT JOB!",
+  "AWESOME!",
+  "NICE WORK!",
+  "LEVEL CLEARED!",
+  "WELL DONE!"
+];
+
+useEffect(() => {
+  const random = messages[Math.floor(Math.random() * messages.length)];
+  setRandomMessage(random);
+}, []);
+
+const [randomMessage, setRandomMessage] = useState("");
   const sourceRef = useRef(null);
   const targetRef = useRef(null);
 
@@ -181,13 +198,32 @@ function NextQuestion({ coins, rewardCoin, onNext, onHome }) {
         </div>
 
         {/* Spinning graphic */}
-        <div className="flex justify-center my-6 relative z-0">
-          <img
-            src={SpinningBG}
-            alt="Spinning"
-            className="animate-spin [animation-duration:10s]"
-          />
-        </div>
+          <div className="flex justify-center my-6 relative z-0">
+            <img
+              src={SpinningBG}
+              alt="Spinning"
+              className="animate-spin [animation-duration:10s]"
+            />
+
+            {/* CENTER TEXT */}
+            <h1
+              className="absolute top-1/2 left-1/2 
+                        -translate-x-1/2 -translate-y-1/2 
+                        text-center font-LG text-2xl max-[380px]:text-lg px-2"
+              style={{
+                WebkitTextStroke: '1px #084A97',
+                color: '#ffff',
+                textShadow: `
+                  0 0 5px #fff,
+                  0 0 10px #021934,
+                  0 0 20px #F1C234
+                `,
+                animation: 'fadePop 0.6s ease-out, pulseGlow 2s infinite'
+              }}
+            >
+              {randomMessage}
+            </h1>
+          </div>
 
         {/* Next question button */}
         <div className="flex justify-center relative z-10">
