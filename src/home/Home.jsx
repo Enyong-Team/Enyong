@@ -170,20 +170,30 @@ function Home() {
                   alt="rank badge"
                   className="w-10 h-10 max-[380px]:w-8 max-[380px]:h-8 bg-[#021934] rounded-lg p-1"
                 />
-                <h1
-                  className="max-[380px]:text-xs text-sm px-2 p-1 mt-1 
-                             max-[380px]:mt-0.5 text-center 
-                             border-t-2 border-r-2 border-b-2 border-[#999999]
-                             rounded-tr-full rounded-br-full drop-shadow-white/30 drop-shadow text-[#F1C234]
-                            mb-1 font-LG"
-                >
-                  {levelTitle}
-                </h1>
+                  <h1
+                    className="max-[380px]:text-xs text-sm px-2 p-1 mt-1 
+                              max-[380px]:mt-0.5 text-center 
+                              border-t-2 border-r-2 border-b-2 border-[#999999]
+                              rounded-tr-full rounded-br-full 
+                              text-[#F1C234] mb-1 font-LG"
+                    style={{
+                      WebkitTextStroke: '0.5px #ffffff',
+                      textShadow: `
+                        0 0 3px #fff,
+                        0 0 6px #F1C234,
+                        0 0 10px #F1C234,
+                        0 0 16px #FFD966
+                      `,
+                      boxShadow: '0 0 10px rgba(241, 194, 52, 0.4)'
+                    }}
+                  >
+                    {levelTitle}
+                  </h1>
               </div>
             </Link>
           </div>
 
-          {/* Earth button */}
+          {/* deped pic */}
           <img
             src={depedPic}
             alt="earth"

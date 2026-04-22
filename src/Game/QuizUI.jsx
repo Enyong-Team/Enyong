@@ -209,27 +209,26 @@ export default function QuizUI({
 
       {/* --- MAIN CONTENT CONTAINER --- */}
       {/* This holds Card, Choices, and Button in a vertical column */}
-      <div className="flex flex-col justify-center items-center -mt-24 w-full">
+      <div className="flex flex-col justify-center items-center w-full">
         
         {/* 1. QUESTION CARD */}
-        <div className="flex justify-center items-center 
-                        pb-4 mt-15 
-                        relative z-0">
-          <img
-            src={QuizCard}
-            className="w-[293px] sm:w-[360px] md:w-[393px] 
-                      max-[380px]:w-[273px] max-[380px]:h-[250px] "
-            alt="Quiz Card"
-          />
-          <div className="absolute flex-col -top-1.5 left-1/2  max-[380px]:text-sm -translate-x-1/2 w-[72px] h-[72px] rounded-full flex items-center justify-center text-white text-xl font-FD pt-1">
-            {levelNumber}
-            <h1 className="text-xs ">Level</h1>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center pt-12 max-[380px]:mb-15 ">
-            <h1 className="w-[238px] text-white text-center   max-[340px]:text-sm text-xl font-FD leading-tight">
-              {question}
-            </h1> 
-          </div>
+        <div className="flex justify-center items-center text-center pb-4 ">
+            <div className="flex justify-center items-center text-center pb-4">
+              <div
+                className="w-[293px] sm:w-[360px] md:w-[393px] 
+                          h-[260px] 
+                          shadow-[inset_0_0_15px_rgba(0,0,0,0.6)] 
+                          bg-[#084E99] rounded-3xl 
+                          max-[380px]:w-[273px] max-[380px]:h-[250px]
+                          flex flex-col items-center justify-center px-4"
+              >
+                
+                <h1 className="text-white text-center text-xl max-[340px]:text-sm font-FD leading-tight break-words">
+                  {question}
+                </h1>
+
+              </div>
+            </div>
         </div>
 
         {/* 2. CHOICES */}
