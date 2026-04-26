@@ -25,6 +25,7 @@ import Ranking from './home/ranking/studentRanking.jsx';
 import Rank from './home/rank/rank.jsx'
 import EarnCoins from './home/earnCoin/earnCoin.jsx'
 
+import RankUp from './Game/rankUp/rankUp.jsx';
 /* ===== Mini Games PAGES ===== */
 
 //Play With Partner
@@ -111,7 +112,7 @@ function App() {
 
         <Route path="/miniGameQuizUI" element={<MiniGameQuizUI />} />
 
-
+        <Route path="/rankUp" element={<RankUp />} />
 
         {/* AUTHENTICATION PAGES */}
         <Route path="/signin" element={<SignIn />} />
