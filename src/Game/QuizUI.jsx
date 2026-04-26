@@ -223,7 +223,7 @@ export default function QuizUI({
                           flex flex-col items-center justify-center px-4"
               >
                 
-                <h1 className="text-white text-center text-xl max-[340px]:text-sm font-FD leading-tight break-words">
+                <h1 className="text-white text-center text-xl max-[340px]:text-sm font-FD leading-tight wrap-break-word">
                   {question}
                 </h1>
 

@@ -308,7 +308,7 @@ function Home() {
             className={`text-sm px-6 p-1 rounded-tr-2xl rounded-br-2xl transition cursor-pointer active:scale-95
               ${showLevelQuarterBtn ? "bg-green-600 shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]" : "bg-[#0A5090]"}`}
           >
-            LEVEL AND <br /> QUARTER
+            LEVEL AND <br /> TERM
           </button>
         </div>
 
@@ -318,7 +318,7 @@ function Home() {
           <div className="w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center">
             <h1 className="font-LG text-white text-center">Scan a QR code to challenge a friend in a quiz battle.</h1>
             <Link to={"/PlayWithPartner"}>
-              <img src={playPic} alt="play1v1btn" className="w-[50px] h-[49px] cursor-pointer active:scale-95" />
+              <img src={playPic} alt="play1v1btn" className="w-[50px] h-[49px] cursor-pointer active:scale-95 animate-pulse-slow" />
             </Link>
           </div>
         </div>
@@ -328,7 +328,7 @@ function Home() {
           <div className="w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center">
             <h1 className="font-LG text-white text-center">Answer fun questions to collect more coins and unlock rewards.</h1>
             <Link to={"/earnCoins"}>
-              <img src={playPic} alt="playECbtn" className="w-[50px] h-[49px] cursor-pointer active:scale-95" />
+              <img src={playPic} alt="playECbtn" className="w-[50px] h-[49px] cursor-pointer active:scale-95 animate-pulse-slow" />
             </Link>
           </div>
         </div>
@@ -337,8 +337,8 @@ function Home() {
 "max-h-40 opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"}`}>
           <div className="w-[90%] rounded-xl p-3 flex flex-col gap-3 items-center justify-center">
             <h1 className="font-LG text-white text-center">Replay lesson-based games by level and quarter to review and improve.</h1>
-            <Link to={"/levelandquarter"}>
-              <img src={playPic} alt="playLAQbtn" className="w-[50px] h-[49px] cursor-pointer active:scale-95" />
+            <Link to={"/levelandterm"}>
+              <img src={playPic} alt="playLATbtn" className="w-[50px] h-[49px] cursor-pointer active:scale-95 animate-pulse-slow" />
             </Link>
           </div>
         </div>

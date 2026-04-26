@@ -41,14 +41,7 @@ function signIn() {
                     placeholder="Create Password"/>    
                 </div>
 
-                {/* Forgot Password*/}
-                <div className='flex justify-end-safe -mt-5'>
-                    <Link to={"/forgotpass"}>
-                        <h1 className='text-white active:scale-95'>
-                            Forgot Password?
-                        </h1>
-                    </Link>
-                </div>
+
 
                 {/*Sign IN Button*/}
                 <div className='flex justify-center pt-20'>

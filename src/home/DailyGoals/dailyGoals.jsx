@@ -204,7 +204,7 @@ function DailyGoals() {
               alt="coin" 
               className="w-12 h-12 relative z-10 animate-target-pop"
             />
-            <h1 className="font-LG pr-2 text-white text-xl min-w-[24px] text-center">{displayedCoins}</h1>
+            <h1 className="font-LG pr-2 text-white text-xl min-w-6 text-center">{displayedCoins}</h1>
           </div>
 
           <div>

@@ -20,10 +20,12 @@ import ForgotPassword from './authentication/forgotpassword/forgotPassword.jsx';
 import VerifyPhoneNumber from './authentication/forgotpassword/verifyPhoneNumber.jsx';
 import CreateNewPassword from './authentication/forgotpassword/createNewPassword.jsx';
 
-//Minigames
+
 import Ranking from './home/ranking/studentRanking.jsx';
 import Rank from './home/rank/rank.jsx'
 import EarnCoins from './home/earnCoin/earnCoin.jsx'
+
+/* ===== Mini Games PAGES ===== */
 
 //Play With Partner
 import PlayWithPartner from './home/playwithpartner/PlayWithPartner';
@@ -33,8 +35,13 @@ import Scan1 from "./home/playwithpartner/Scan1";
 import Scan2 from "./home/playwithpartner/Scan2";
 import Scan3 from "./home/playwithpartner/Scan3";
 
-//Level and Quarter
-import LevelQuarter from './home/levelandquarter/levelAndQuarter.jsx';
+//Level and Term
+import LevelTerm from './home/levelandterm/levelAndTerm.jsx';
+import SelectTerm from './home/levelandterm/selectTerm.jsx';
+import SelectSubject from './home/levelandterm/selectSubject.jsx';
+
+import MiniGameQuizUI from './Game/MiniGameQuizUI.jsx';
+
 
 /* ===== GAME PAGES ===== */
 // Random subject selector
@@ -96,7 +103,15 @@ function App() {
         <Route path="/scan1" element={<Scan1 />} />
         <Route path="/scan2" element={<Scan2 />} />
         <Route path="/scan3" element={<Scan3 />} />
-        <Route path="/levelandquarter" element={<LevelQuarter />} />
+
+
+        <Route path="/levelandterm" element={<LevelTerm />} />
+        <Route path="/selectTerm" element={<SelectTerm />} />
+        <Route path="/selectSubject" element={<SelectSubject />} />
+
+        <Route path="/miniGameQuizUI" element={<MiniGameQuizUI />} />
+
+
 
         {/* AUTHENTICATION PAGES */}
         <Route path="/signin" element={<SignIn />} />
