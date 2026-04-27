@@ -23,7 +23,15 @@ const [randomMessage, setRandomMessage] = useState("");
   const targetRef = useRef(null);
 
   const [animatingCoins, setAnimatingCoins] = useState([]);
-  const [displayedCoins, setDisplayedCoins] = useState(coins - rewardCoin);
+const safeCoins = Number(coins) || 0;
+const safeReward = Number(rewardCoin) || 0;
+
+const [displayedCoins, setDisplayedCoins] = useState(safeCoins - safeReward);
+useEffect(() => {
+  const safeCoins = Number(coins) || 0;
+  const safeReward = Number(rewardCoin) || 0;
+  setDisplayedCoins(safeCoins - safeReward);
+}, [coins, rewardCoin]);
 
   useEffect(() => {
     let timeouts = [];
