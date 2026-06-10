@@ -177,7 +177,7 @@ export default function Game() {
 
       setCorrectCount(prev => {
         const oldRank = getRank(prev);
-        const newCount = prev + 149;
+        const newCount = prev + 1;
         const newRank = getRank(newCount);
 
         // Show Rank Up Screen
