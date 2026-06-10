@@ -105,6 +105,15 @@ import SpinningBG from '../Game/nextquestion/spinningBG/SpinningBG.png';
    ========================================= */
 import ClearBanner from './tournamentPics/clearBanner.png';
 
+/* =========================================
+   RANK UP MEDAL
+   ========================================= */
+import mandirigmaRankUP from '../Game/rankUp/rankUpMedals/mandirigmaRankUP.png';
+import marangalRankUP from '../Game/rankUp/rankUpMedals/marangalRankUP.png';
+import maharlikaRankUP from '../Game/rankUp/rankUpMedals/maharlikaRankUP.png';
+import maestroRankUP from '../Game/rankUp/rankUpMedals/maestroRankUP.png';
+import alamatRankUP from '../Game/rankUp/rankUpMedals/alamatRankUP.png';
+
 
 /* =========================================
    EXPORT EVERYTHING
@@ -159,5 +168,8 @@ export {
   SpinningBG,
 
    // Tournament
-  ClearBanner
-};
+  ClearBanner,
+
+  // Rank Up
+  mandirigmaRankUP, marangalRankUP, maharlikaRankUP, maestroRankUP, alamatRankUP,
+}; 

@@ -29,7 +29,14 @@ const getLevelTitle = (correctCount) => {
   return "MANDIRIGMA";
 };
 
-
+// RANK LOGIC
+const getRank = (correctCount) => {
+  if (correctCount >= 1501) return "MARANGAL";
+  if (correctCount >= 901) return "ALAMAT";
+  if (correctCount >= 501) return "MAESTRO";
+  if (correctCount >= 201) return "MAHARLIKA";
+  return "MANDIRIGMA";
+};
 
 
 export default function Game() {
@@ -165,20 +172,37 @@ export default function Game() {
     }
 
 
-      setTimeout(() => {
-        setCoins(c => c + 3);
+    setTimeout(() => {
+      setCoins(c => c + 3);
 
-        setCorrectCount(prev => prev + 1);
+      setCorrectCount(prev => {
+        const oldRank = getRank(prev);
+        const newCount = prev + 149;
+        const newRank = getRank(newCount);
+
+        // Show Rank Up Screen
+        if (oldRank !== newRank) {
+          navigate("/rankUp", {
+            state: {
+              rank: newRank,
+              correctCount: newCount,
+            },
+          });
+
+          return newCount;
+        }
 
         setShowNextModal(true);
-      }, 300);
+        return newCount;
+      });
 
-    } else {
-       // Wrong answer sound effects
-      if (isSoundOn ) {
-       playRandomIncorrectSound();
+    }, 300);
+    }else {
+        // Wrong answer sound effects
+        if (isSoundOn ) {
+        playRandomIncorrectSound();
+        }
       }
-    }
   };
     // hint
   const handleHint = () => {
