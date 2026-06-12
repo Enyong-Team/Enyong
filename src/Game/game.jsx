@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import Rating from "./Rating";
 
 import {
   initCorrectSounds,
@@ -88,6 +89,25 @@ export default function Game() {
   const [usedHints, setUsedHints] = useState(0); 
   const [showNextModal, setShowNextModal] = useState(false);
 
+
+  //rating
+  const [showRatingPopup, setShowRatingPopup] = useState(false);
+
+  const maybeShowRatingPopup = () => {
+    const today = new Date().toDateString();
+    const lastShown = localStorage.getItem("ratingPopupDate");
+
+    if (lastShown === today) return false;
+
+    const shouldShow = Math.random() < 0.2;
+
+    if (shouldShow) {
+      localStorage.setItem("ratingPopupDate", today);
+      return true;
+    }
+
+    return false;
+  };
   
 // RANDOMIZATION LOGIC 
   const fetchQuestion = () => {
@@ -192,7 +212,19 @@ export default function Game() {
           return newCount;
         }
 
-        setShowNextModal(true);
+        if (maybeShowRatingPopup()) {
+          setShowRatingPopup(true);
+        } else {
+          setShowNextModal(true);
+        }
+
+        {/*
+            // pang TEST ng rating 
+          if (newCount % 2 === 0) {
+            setShowRatingPopup(true);
+          } else {
+            setShowNextModal(true);
+          }*/}
         return newCount;
       });
 
@@ -273,6 +305,18 @@ export default function Game() {
           })
         }
       />
+      )}
+      {showRatingPopup && (
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/60">
+          <Rating
+            onRate={(rating) => {
+              console.log("Player rated:", rating);
+
+              setShowRatingPopup(false);
+              setShowNextModal(true);
+            }}
+          />
+        </div>
       )}
     </> 
   );

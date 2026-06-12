@@ -59,7 +59,8 @@ import PeAndHealthCTG  from './Game/Categories/PhysicalEducationAndHealth/PeAndH
 import GmrcCTG from './Game/Categories/GMRC/GMRC.jsx'
 import TleCTG from './Game/Categories/TLE/TLE.jsx';
 
-
+/* ===== Rating ===== */
+import Rating from './Game/rating.jsx'
 /* Quiz pages
 import ScinceQuiz from './Game/Categories/Science/ScinceQuiz.jsx';
 import FilipinoQuiz from './Game/Categories/Filipino/FilipinoQuiz.jsx';
@@ -140,7 +141,8 @@ function App() {
         {/*Quiz Route */}
         <Route path="/game" element={<Game />} />
 
-
+        {/*Rating Route */}
+        <Route path="/rating" element={<Rating/>} />
 
         {/* QUIZ PAGES
         <Route path="/science_quiz" element={<Game />} />
